@@ -889,3 +889,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     if(e.target.id==="delivery-modal")closeDeliveryModal();
   });
 });
+document.getElementById("theme-toggle").addEventListener("click",()=>{
+  document.body.classList.toggle("dark")
+})
