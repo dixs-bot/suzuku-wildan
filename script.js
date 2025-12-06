@@ -7,7 +7,7 @@ const products = [
     id: "ertiga",
     name: "All New Ertiga",
     category: "passenger",
-    image: "", // TODO: ganti URL gambar Ertiga
+    image: "SUZUKI_ERTIGA.png", // TODO: ganti URL gambar Ertiga
     variants: [
       {
         id: "mc-gl-mt",
@@ -238,7 +238,7 @@ const products = [
     id: "grand-vitara",
     name: "Grand Vitara GX",
     category: "passenger",
-    image: "", // TODO: gambar Grand Vitara
+    image: "grand vitara GX.png", // TODO: gambar Grand Vitara
     variants: [
       {
         id: "gx-at",
@@ -271,7 +271,7 @@ const products = [
     id: "jimny-3door",
     name: "Jimny 3 Door",
     category: "passenger",
-    image: "", // TODO: gambar Jimny 3 Door
+    image: "SUZUKI_BANDUNG_white-JIMNY_3-DOORS.png", // TODO: gambar Jimny 3 Door
     variants: [
       {
         id: "3door-mt",
@@ -328,7 +328,7 @@ const products = [
     id: "jimny-5door",
     name: "Jimny 5 Door",
     category: "passenger",
-    image: "", // TODO: gambar Jimny 5 Door
+    image: "COLORIZE_JUNGLE_GREEN_FIXED_LAYERS-JIMNY_5-DOORS.png", // TODO: gambar Jimny 5 Door
     variants: [
       {
         id: "5door-mt",
@@ -397,7 +397,7 @@ const products = [
     id: "spresso",
     name: "S-Presso",
     category: "passenger",
-    image: "", // TODO: gambar S-Presso
+    image: "SUZUKI_S PRESSO.png", // TODO: gambar S-Presso
     variants: [
       {
         id: "mt",
@@ -430,7 +430,7 @@ const products = [
     id: "apv",
     name: "APV",
     category: "passenger",
-    image: "", // TODO: gambar APV
+    image: "RED APV_ARENA.png", // TODO: gambar APV
     variants: [
       {
         id: "ge-ps-mt-ab",
@@ -509,7 +509,7 @@ const products = [
     id: "new-carry",
     name: "New Carry Pickup",
     category: "commercial",
-    image: "", // TODO: gambar New Carry
+    image: "White-NEW_CARRY_PICK-UP.png", // TODO: gambar New Carry
     variants: [
       {
         id: "fd",
