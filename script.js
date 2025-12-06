@@ -261,7 +261,7 @@ const products = [
     id: "baleno",
     name: "New Baleno",
     category: "passenger",
-    image: "", // TODO: gambar Baleno
+    image: "BALENO.jpg", // TODO: gambar Baleno
     variants: [
       {
         id: "baleno-at",
@@ -532,7 +532,7 @@ const products = [
     id: "apv-blindvan",
     name: "APV Blind Van",
     category: "commercial",
-    image: "", // TODO: gambar Blind Van
+    image: "APV BLIND VAN.jpg", // TODO: gambar Blind Van
     variants: [
       {
         id: "blindvan",
