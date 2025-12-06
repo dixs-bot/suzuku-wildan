@@ -112,7 +112,7 @@ const products = [
     id: "xl7",
     name: "XL7 Hybrid",
     category: "passenger",
-    image: "", // TODO: ganti URL gambar XL7
+    image: "Suzuki_XL7_ALPHA_KURO_IVORY-KURO.png", // TODO: ganti URL gambar XL7
     variants: [
       {
         id: "zeta-mt",
