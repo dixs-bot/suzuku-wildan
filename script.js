@@ -4,6 +4,50 @@
 const products = [
   // ============ PASSENGER ============
   {
+  id: "fronx",
+  name: "Fronx",
+  category: "passenger",
+  image: "SUZUKI_FRONK.png", // TODO: tambahkan url gambar
+  variants: [
+    {
+      id: "gl-mt",
+      name: "GL MT",
+      otr: 261800000, // ganti sesuai OTR Bandung
+      specs: {
+        engine: "1.0L BoosterJet",
+        transmission: "Manual",
+        passengers: 5,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["LED Headlamp", "Touchscreen", "Cruise Control"]
+      }
+    },
+    {
+      id: "gl-at",
+      name: "GL AT",
+      otr: 273800000,
+      specs: {
+        engine: "1.0L BoosterJet",
+        transmission: "Automatic",
+        passengers: 5,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["LED Headlamp", "Touchscreen", "Cruise Control"]
+      }
+    },
+    {
+      id: "gx mt",
+      name: "GX MT",
+      otr: 278800000,
+      specs: {
+        engine: "1.0L BoosterJet",
+        transmission: "Automatic",
+        passengers: 5,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["Two Tone Roof", "360 Camera", "Cruise Control"]
+      }
+    }
+  ]
+}, 
+  {
     id: "ertiga",
     name: "All New Ertiga",
     category: "passenger",
