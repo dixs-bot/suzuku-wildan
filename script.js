@@ -3,6 +3,7 @@
    Versi termasuk:
    - Fronx fixed variant id (gx-mt)
    - Delivery Gallery (serah terima)
+   - Dark mode toggle
 ********************************************************************/
 
 // =================================================================
@@ -54,11 +55,12 @@ const products = [
       }
     ]
   },
- {
+
+  {
     id: "ertiga",
     name: "All New Ertiga",
     category: "passenger",
-    image: "SUZUKI_ERTIGA.png", // TODO: ganti URL gambar Ertiga
+    image: "SUZUKI_ERTIGA.png",
     variants: [
       {
         id: "mc-gl-mt",
@@ -163,7 +165,7 @@ const products = [
     id: "xl7",
     name: "XL7 Hybrid",
     category: "passenger",
-    image: "Suzuki_XL7_ALPHA_KURO_IVORY-KURO.png", // TODO: ganti URL gambar XL7
+    image: "Suzuki_XL7_ALPHA_KURO_IVORY-KURO.png",
     variants: [
       {
         id: "zeta-mt",
@@ -268,7 +270,7 @@ const products = [
     id: "baleno",
     name: "New Baleno",
     category: "passenger",
-    image: "BALENO.jpg", // TODO: gambar Baleno
+    image: "BALENO.jpg",
     variants: [
       {
         id: "baleno-at",
@@ -289,7 +291,7 @@ const products = [
     id: "grand-vitara",
     name: "Grand Vitara GX",
     category: "passenger",
-    image: "grand vitara GX.png", // TODO: gambar Grand Vitara
+    image: "grand vitara GX.png",
     variants: [
       {
         id: "gx-at",
@@ -322,7 +324,7 @@ const products = [
     id: "jimny-3door",
     name: "Jimny 3 Door",
     category: "passenger",
-    image: "SUZUKI_BANDUNG_white-JIMNY_3-DOORS.png", // TODO: gambar Jimny 3 Door
+    image: "SUZUKI_BANDUNG_white-JIMNY_3-DOORS.png",
     variants: [
       {
         id: "3door-mt",
@@ -379,7 +381,7 @@ const products = [
     id: "jimny-5door",
     name: "Jimny 5 Door",
     category: "passenger",
-    image: "COLORIZE_JUNGLE_GREEN_FIXED_LAYERS-JIMNY_5-DOORS.png", // TODO: gambar Jimny 5 Door
+    image: "COLORIZE_JUNGLE_GREEN_FIXED_LAYERS-JIMNY_5-DOORS.png",
     variants: [
       {
         id: "5door-mt",
@@ -448,7 +450,7 @@ const products = [
     id: "spresso",
     name: "S-Presso",
     category: "passenger",
-    image: "SUZUKI_S PRESSO.png", // TODO: gambar S-Presso
+    image: "SUZUKI_S PRESSO.png",
     variants: [
       {
         id: "mt",
@@ -481,7 +483,7 @@ const products = [
     id: "apv",
     name: "APV",
     category: "passenger",
-    image: "RED APV_ARENA.png", // TODO: gambar APV
+    image: "RED APV_ARENA.png",
     variants: [
       {
         id: "ge-ps-mt-ab",
@@ -533,31 +535,94 @@ const products = [
       }
     ]
   },
-  /***** (SEMUA PRODUK LAIN TETAP YANG KAMU PUNYA—tidak aku hapus)  ****/
-  /* copy seluruh blok produk kamu (Ertiga, XL7, Baleno, dst…)     */
-  /* dari script sebelumnya mulai dari { id:"ertiga", ... sampai } */
 
+  // ---------------- Commercial -----------------
+  {
+    id: "apv-blindvan",
+    name: "APV Blind Van",
+    category: "commercial",
+    image: "APV BLIND VAN.jpg",
+    variants: [
+      {
+        id: "blindvan",
+        name: "Blind Van",
+        otr: 185200000,
+        specs: {
+          engine: "1.5L",
+          transmission: "Manual",
+          passengers: 2,
+          safety: ["Seatbelt", "Immobilizer"],
+          features: ["Ruang Kargo Luas"]
+        }
+      }
+    ]
+  },
+
+  {
+    id: "new-carry",
+    name: "New Carry Pickup",
+    category: "commercial",
+    image: "White-NEW_CARRY_PICK-UP.png",
+    variants: [
+      {
+        id: "fd",
+        name: "Pick Up FD",
+        otr: 175500000,
+        specs: {
+          engine: "1.5L",
+          transmission: "Manual",
+          passengers: 2,
+          safety: ["Seatbelt", "Immobilizer"],
+          features: ["Flat Deck", "Bak Luas"]
+        }
+      },
+      {
+        id: "wd",
+        name: "Pick Up WD",
+        otr: 176600000,
+        specs: {
+          engine: "1.5L",
+          transmission: "Manual",
+          passengers: 2,
+          safety: ["Seatbelt", "Immobilizer"],
+          features: ["Wide Deck", "Bak Lebih Lebar"]
+        }
+      },
+      {
+        id: "fd-ac-ps",
+        name: "Pick Up FD AC PS",
+        otr: 183500000,
+        specs: {
+          engine: "1.5L",
+          transmission: "Manual",
+          passengers: 2,
+          safety: ["Seatbelt", "Immobilizer"],
+          features: ["Flat Deck", "AC", "Power Steering"]
+        }
+      },
+      {
+        id: "wd-ac-ps",
+        name: "Pick Up WD AC PS",
+        otr: 184400000,
+        specs: {
+          engine: "1.5L",
+          transmission: "Manual",
+          passengers: 2,
+          safety: ["Seatbelt", "Immobilizer"],
+          features: ["Wide Deck", "AC", "Power Steering"]
+        }
+      }
+    ]
+  }
 ];
 
 // =================================================================
-// 2. DATA FOTO SERAH TERIMA (NEW)
+// 2. DATA FOTO SERAH TERIMA
 // =================================================================
 const deliveryImages = [
-  {
-    id:"d1",
-    image:"serah1.jpg",
-    caption:"Serah terima Suzuki"
-  },
-  {
-    id:"d2",
-    image:"serah2.jpg",
-    caption:"Serah terima Customer"
-  },
-  {
-    id:"d3",
-    image:"serah3.jpg",
-    caption:"Unit XL7"
-  }
+  { id: "d1", image: "serah1.jpg", caption: "Serah terima Suzuki" },
+  { id: "d2", image: "serah2.jpg", caption: "Serah terima Customer" },
+  { id: "d3", image: "serah3.jpg", caption: "Unit XL7" }
 ];
 
 // =================================================================
@@ -612,12 +677,12 @@ function renderProducts() {
 
     card.innerHTML = `
       <div class="product-image">
-        ${ product.image ? `<img src="${product.image}" />` : "No Image" }
+        ${product.image ? `<img src="${product.image}" alt="${product.name}"/>` : "No Image"}
       </div>
       <div class="product-name">${product.name}</div>
-      <div class="product-category">${product.category==="passenger"?"Passenger":"Commercial"}</div>
+      <div class="product-category">${product.category === "passenger" ? "Passenger" : "Commercial"}</div>
       <div class="product-meta">Tersedia ${product.variants.length} tipe</div>
-      <div class="product-meta">Klik untuk lihat tipe</div>
+      <div class="product-meta">Klik untuk lihat tipe, spesifikasi, dan simulasi kredit</div>
     `;
 
     card.addEventListener("click", () => openProductModal(product.id));
@@ -642,7 +707,7 @@ function initCategoryFilter() {
       const cards = cardsContainer.querySelectorAll(".product-card");
       cards.forEach((card) => {
         const cat = card.dataset.category;
-        card.style.display = (filter==="all"||filter===cat)? "" : "none";
+        card.style.display = filter === "all" || filter === cat ? "" : "none";
       });
     });
   });
@@ -651,11 +716,12 @@ function initCategoryFilter() {
 // =================================================================
 // 7. MODAL PRODUK
 // =================================================================
-let currentProduct=null;
-let currentVariant=null;
+let currentProduct = null;
+let currentVariant = null;
 
-function openProductModal(productId){
-  currentProduct = products.find(p=>p.id===productId);
+function openProductModal(productId) {
+  currentProduct = products.find((p) => p.id === productId);
+  if (!currentProduct) return;
   currentVariant = currentProduct.variants[0];
 
   document.getElementById("product-modal").classList.remove("hidden");
@@ -664,69 +730,83 @@ function openProductModal(productId){
   renderVariantButtons();
   updateProductModalView();
 }
-function closeProductModal(){
+function closeProductModal() {
   document.getElementById("product-modal").classList.add("hidden");
 }
-function renderProductModalHeader(){
-  document.getElementById("modal-product-name").textContent=currentProduct.name;
-  document.getElementById("modal-product-category").textContent=
-    currentProduct.category==="passenger"?"Kategorie: Passenger":"Kategorie: Commercial";
+function renderProductModalHeader() {
+  document.getElementById("modal-product-name").textContent = currentProduct.name;
+  document.getElementById("modal-product-category").textContent =
+    currentProduct.category === "passenger" ? "Kategori: Passenger" : "Kategori: Commercial";
 
-  const imgEl=document.getElementById("modal-product-image");
-  imgEl.innerHTML=currentProduct.image?`<img src="${currentProduct.image}" />`:"No Image";
+  const imgEl = document.getElementById("modal-product-image");
+  imgEl.innerHTML = currentProduct.image
+    ? `<img src="${currentProduct.image}" alt="${currentProduct.name}"/>`
+    : "No Image";
 }
-function renderVariantButtons(){
-  const container=document.getElementById("variant-buttons");
-  container.innerHTML="";
-  currentProduct.variants.forEach(v=>{
-    const btn=document.createElement("button");
-    btn.className="variant-button";
-    btn.textContent=v.name;
-    if(v.id===currentVariant.id)btn.classList.add("active");
-    btn.addEventListener("click",()=>setActiveVariant(currentProduct.id,v.id));
+function renderVariantButtons() {
+  const container = document.getElementById("variant-buttons");
+  container.innerHTML = "";
+  currentProduct.variants.forEach((v) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "variant-button";
+    btn.textContent = v.name;
+    if (v.id === currentVariant.id) btn.classList.add("active");
+    btn.addEventListener("click", () => setActiveVariant(currentProduct.id, v.id));
     container.appendChild(btn);
   });
 }
-function setActiveVariant(productId,variantId){
-  currentProduct=products.find(p=>p.id===productId);
-  currentVariant=currentProduct.variants.find(v=>v.id===variantId);
+function setActiveVariant(productId, variantId) {
+  currentProduct = products.find((p) => p.id === productId);
+  currentVariant = currentProduct.variants.find((v) => v.id === variantId);
   renderVariantButtons();
   updateProductModalView();
 }
-function updateProductModalView(){
-  document.getElementById("modal-price").textContent="Rp "+formatRupiah(currentVariant.otr);
+function updateProductModalView() {
+  document.getElementById("modal-price").textContent = "Rp " + formatRupiah(currentVariant.otr);
 
-  const briefList=document.getElementById("modal-brief-specs");
-  briefList.innerHTML="";
-  const s=currentVariant.specs;
-  [ `Mesin: ${s.engine}`, `Transmisi: ${s.transmission}`, `Kapasitas: ${s.passengers}` ]
-  .forEach(text=>{ const li=document.createElement("li"); li.textContent=text; briefList.appendChild(li);});
+  const briefList = document.getElementById("modal-brief-specs");
+  briefList.innerHTML = "";
+  const s = currentVariant.specs;
+  [`Mesin: ${s.engine}`, `Transmisi: ${s.transmission}`, `Kapasitas: ${s.passengers}`].forEach(
+    (text) => {
+      const li = document.createElement("li");
+      li.textContent = text;
+      briefList.appendChild(li);
+    }
+  );
 
-  const detailEl=document.getElementById("modal-specs-detail");
-  detailEl.innerHTML=`
+  const detailEl = document.getElementById("modal-specs-detail");
+  detailEl.innerHTML = `
     <h4>Mesin</h4><p>${s.engine}</p>
     <h4>Transmisi</h4><p>${s.transmission}</p>
     <h4>Penumpang</h4><p>${s.passengers}</p>
-    <h4>Keselamatan</h4><p>${(s.safety||[]).join(", ")}</p>
-    <h4>Fitur</h4><p>${(s.features||[]).join(", ")}</p>
+    <h4>Keselamatan</h4><p>${(s.safety || []).join(", ")}</p>
+    <h4>Fitur</h4><p>${(s.features || []).join(", ")}</p>
   `;
 
-  const priceInput=document.getElementById("modal-price-input");
-  priceInput.value=formatRupiah(currentVariant.otr);
+  const priceInput = document.getElementById("modal-price-input");
+  if (priceInput) priceInput.value = formatRupiah(currentVariant.otr);
 }
 
 // =================================================================
 // 8. TAB MODAL
 // =================================================================
-function initModalTabs(){
-  document.querySelectorAll(".tab-button").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      document.querySelectorAll(".tab-button").forEach(x=>x.classList.remove("active"));
+function initModalTabs() {
+  const buttons = document.querySelectorAll(".tab-button");
+  const tabSpecs = document.getElementById("tab-specs");
+  const tabSimulation = document.getElementById("tab-simulation");
+
+  if (!buttons.length || !tabSpecs || !tabSimulation) return;
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
 
-      const tab=btn.dataset.tab;
-      document.getElementById("tab-specs").classList.toggle("hidden",tab!=="specs");
-      document.getElementById("tab-simulation").classList.toggle("hidden",tab!=="simulation");
+      const tab = btn.dataset.tab;
+      tabSpecs.classList.toggle("hidden", tab !== "specs");
+      tabSimulation.classList.toggle("hidden", tab !== "simulation");
     });
   });
 }
@@ -734,36 +814,36 @@ function initModalTabs(){
 // =================================================================
 // 9. SIMULASI (FLAT)
 // =================================================================
-function calculateInstallment(price,dp,tenor,interestRate){
-  const principal=price-dp;
-  if(principal<=0||tenor<=0)return{monthlyInstallment:0,totalPayment:0,totalDP:dp};
-  const monthlyInterest=(interestRate/100)/12;
-  const interest=principal*monthlyInterest;
-  const principalPart=principal/tenor;
-  const monthly=principalPart+interest;
+function calculateInstallment(price, dp, tenor, interestRate) {
+  const principal = price - dp;
+  if (principal <= 0 || tenor <= 0) return { monthlyInstallment: 0, totalPayment: 0, totalDP: dp };
+  const monthlyInterest = (interestRate / 100) / 12;
+  const interest = principal * monthlyInterest;
+  const principalPart = principal / tenor;
+  const monthly = principalPart + interest;
 
-  return{monthlyInstallment:monthly,totalPayment:monthly*tenor+dp,totalDP:dp};
+  return { monthlyInstallment: monthly, totalPayment: monthly * tenor + dp, totalDP: dp };
 }
 
 // =================================================================
 // 10. MODAL SIMULATION FORM
 // =================================================================
-function initModalSimulationForm(){
-  const form=document.getElementById("modal-simulation-form");
-  if(!form)return;
+function initModalSimulationForm() {
+  const form = document.getElementById("modal-simulation-form");
+  if (!form) return;
 
-  form.addEventListener("submit",(e)=>{
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const price=parseRupiah(document.getElementById("modal-price-input").value);
-    const dp=parseRupiah(document.getElementById("modal-dp-input").value);
-    const tenor=+document.getElementById("modal-tenor-input").value;
-    const interest=+document.getElementById("modal-interest-input").value;
+    const price = parseRupiah(document.getElementById("modal-price-input").value);
+    const dp = parseRupiah(document.getElementById("modal-dp-input").value);
+    const tenor = +document.getElementById("modal-tenor-input").value;
+    const interest = +document.getElementById("modal-interest-input").value;
 
-    const r=calculateInstallment(price,dp,tenor,interest);
-    document.getElementById("modal-simulation-result").innerHTML=`
+    const r = calculateInstallment(price, dp, tenor, interest);
+    document.getElementById("modal-simulation-result").innerHTML = `
       <p><b>Total DP:</b> Rp ${formatRupiah(r.totalDP)}</p>
-      <p><b>Cicilan:</b> Rp ${formatRupiah(r.monthlyInstallment)}</p>
-      <p><b>Total Bayar:</b> Rp ${formatRupiah(r.totalPayment)}</p>
+      <p><b>Cicilan per bulan:</b> Rp ${formatRupiah(r.monthlyInstallment)}</p>
+      <p><b>Total pembayaran:</b> Rp ${formatRupiah(r.totalPayment)}</p>
     `;
   });
 }
@@ -771,56 +851,59 @@ function initModalSimulationForm(){
 // =================================================================
 // 11. GLOBAL SIMULATION
 // =================================================================
-function initGlobalSimulation(){
-  const productSelect=document.getElementById("global-product-select");
-  const variantSelect=document.getElementById("global-variant-select");
-  const priceInput=document.getElementById("global-price-input");
-  const dpInput=document.getElementById("global-dp-input");
-  const tenorInput=document.getElementById("global-tenor-input");
-  const interestInput=document.getElementById("global-interest-input");
-  const form=document.getElementById("global-simulation-form");
-  const resultEl=document.getElementById("global-simulation-result");
-  if(!productSelect||!variantSelect||!form)return;
+function initGlobalSimulation() {
+  const productSelect = document.getElementById("global-product-select");
+  const variantSelect = document.getElementById("global-variant-select");
+  const priceInput = document.getElementById("global-price-input");
+  const dpInput = document.getElementById("global-dp-input");
+  const tenorInput = document.getElementById("global-tenor-input");
+  const interestInput = document.getElementById("global-interest-input");
+  const form = document.getElementById("global-simulation-form");
+  const resultEl = document.getElementById("global-simulation-result");
+  if (!productSelect || !variantSelect || !form) return;
 
-  products.forEach(p=>{
-    const opt=document.createElement("option");
-    opt.value=p.id;
-    opt.textContent=p.name;
+  products.forEach((p) => {
+    const opt = document.createElement("option");
+    opt.value = p.id;
+    opt.textContent = p.name;
     productSelect.appendChild(opt);
   });
 
-  function updateVariants(){
-    const p=products.find(x=>x.id===productSelect.value);
-    variantSelect.innerHTML="";
-    p.variants.forEach(v=>{
-      const opt=document.createElement("option");
-      opt.value=v.id;
-      opt.textContent=v.name;
+  function updateVariants() {
+    const p = products.find((x) => x.id === productSelect.value);
+    if (!p) return;
+    variantSelect.innerHTML = "";
+    p.variants.forEach((v) => {
+      const opt = document.createElement("option");
+      opt.value = v.id;
+      opt.textContent = v.name;
       variantSelect.appendChild(opt);
     });
     updatePrice();
   }
-  function updatePrice(){
-    const p=products.find(x=>x.id===productSelect.value);
-    const v=p.variants.find(x=>x.id===variantSelect.value);
-    priceInput.value=formatRupiah(v.otr);
+  function updatePrice() {
+    const p = products.find((x) => x.id === productSelect.value);
+    if (!p) return;
+    const v = p.variants.find((x) => x.id === variantSelect.value);
+    if (!v) return;
+    priceInput.value = formatRupiah(v.otr);
   }
-  productSelect.addEventListener("change",updateVariants);
-  variantSelect.addEventListener("change",updatePrice);
+  productSelect.addEventListener("change", updateVariants);
+  variantSelect.addEventListener("change", updatePrice);
   updateVariants();
 
-  form.addEventListener("submit",(e)=>{
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const price=parseRupiah(priceInput.value);
-    const dp=parseRupiah(dpInput.value);
-    const tenor=+tenorInput.value;
-    const interest=+interestInput.value;
+    const price = parseRupiah(priceInput.value);
+    const dp = parseRupiah(dpInput.value);
+    const tenor = +tenorInput.value;
+    const interest = +interestInput.value;
 
-    const r=calculateInstallment(price,dp,tenor,interest);
-    resultEl.innerHTML=`
+    const r = calculateInstallment(price, dp, tenor, interest);
+    resultEl.innerHTML = `
       <p><b>Total DP:</b> Rp ${formatRupiah(r.totalDP)}</p>
-      <p><b>Cicilan:</b> Rp ${formatRupiah(r.monthlyInstallment)}</p>
-      <p><b>Total Bayar:</b> Rp ${formatRupiah(r.totalPayment)}</p>
+      <p><b>Cicilan per bulan:</b> Rp ${formatRupiah(r.monthlyInstallment)}</p>
+      <p><b>Total pembayaran:</b> Rp ${formatRupiah(r.totalPayment)}</p>
     `;
   });
 }
@@ -828,12 +911,12 @@ function initGlobalSimulation(){
 // =================================================================
 // 12. CONTACT FORM
 // =================================================================
-function initContactForm(){
-  const form=document.getElementById("contact-form");
-  if(!form)return;
-  form.addEventListener("submit",(e)=>{
+function initContactForm() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("Pesan terkirim!");
+    alert("Terima kasih, pesan Anda sudah tercatat.");
     form.reset();
   });
 }
@@ -841,30 +924,34 @@ function initContactForm(){
 // =================================================================
 // 13. DELIVERY GALLERY (BARU)
 // =================================================================
-function renderDeliveryGallery(){
-  const el=document.getElementById("delivery-gallery");
-  if(!el)return;
-  el.innerHTML="";
-  deliveryImages.forEach(item=>{
-    const div=document.createElement("div");
-    div.className="delivery-item";
-    div.innerHTML=`<img src="${item.image}" alt="${item.caption}">`;
-    div.addEventListener("click",()=>openDeliveryModal(item.image));
+function renderDeliveryGallery() {
+  const el = document.getElementById("delivery-gallery");
+  if (!el) return;
+  el.innerHTML = "";
+  deliveryImages.forEach((item) => {
+    const div = document.createElement("div");
+    div.className = "delivery-item";
+    div.innerHTML = `<img src="${item.image}" alt="${item.caption}">`;
+    div.addEventListener("click", () => openDeliveryModal(item.image));
     el.appendChild(div);
   });
 }
-function openDeliveryModal(image){
-  document.getElementById("delivery-modal-img").src=image;
+function openDeliveryModal(image) {
+  document.getElementById("delivery-modal-img").src = image;
   document.getElementById("delivery-modal").classList.remove("hidden");
 }
-function closeDeliveryModal(){
+function closeDeliveryModal() {
   document.getElementById("delivery-modal").classList.add("hidden");
 }
 
 // =================================================================
 // 14. INIT
 // =================================================================
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
+  // tahun footer
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   initNavbar();
   renderProducts();
   initCategoryFilter();
@@ -875,20 +962,29 @@ document.addEventListener("DOMContentLoaded",()=>{
   initContactForm();
   renderDeliveryGallery();
 
-  const modalOverlay=document.getElementById("product-modal");
-  const closeBtn=document.getElementById("modal-close");
-  if(closeBtn)closeBtn.addEventListener("click",closeProductModal);
-  if(modalOverlay)modalOverlay.addEventListener("click",(e)=>{
-    if(e.target===modalOverlay)closeProductModal();
-  });
+  // modal produk
+  const modalOverlay = document.getElementById("product-modal");
+  const closeBtn = document.getElementById("modal-close");
+  if (closeBtn) closeBtn.addEventListener("click", closeProductModal);
+  if (modalOverlay)
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) closeProductModal();
+    });
 
-  const dClose=document.getElementById("delivery-modal-close");
-  const dOverlay=document.getElementById("delivery-modal");
-  if(dClose)dClose.addEventListener("click",closeDeliveryModal);
-  if(dOverlay)dOverlay.addEventListener("click",(e)=>{
-    if(e.target.id==="delivery-modal")closeDeliveryModal();
-  });
+  // modal delivery
+  const dClose = document.getElementById("delivery-modal-close");
+  const dOverlay = document.getElementById("delivery-modal");
+  if (dClose) dClose.addEventListener("click", closeDeliveryModal);
+  if (dOverlay)
+    dOverlay.addEventListener("click", (e) => {
+      if (e.target.id === "delivery-modal") closeDeliveryModal();
+    });
+
+  // dark mode toggle
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  }
 });
-document.getElementById("theme-toggle").addEventListener("click",()=>{
-  document.body.classList.toggle("dark")
-})
