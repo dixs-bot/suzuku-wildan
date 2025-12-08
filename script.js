@@ -747,22 +747,29 @@ function renderProducts() {
     card.className = "card product-card";
     card.dataset.category = product.category;
 
-    const variantCount = product.variants.length;
+    // Badge khusus per produk
+    let badgeHTML = "";
+    if (product.id === "fronx") {
+      badgeHTML = <div class="product-badge badge-new">NEW LAUNCH</div>;
+    } else if (product.id === "xl7") {
+      badgeHTML = <div class="product-badge badge-kuro">KURO EDITION</div>;
+    }
 
     card.innerHTML = `
+      ${badgeHTML}
       <div class="product-image">
         ${
           product.image
-            ? `<img loading="lazy" src="${product.image}" alt="${product.name}">`
-            : "Gambar Mobil"
+            ? <img src="${product.image}" alt="${product.name}" />
+            : "No Image"
         }
       </div>
       <div class="product-name">${product.name}</div>
       <div class="product-category">
         ${product.category === "passenger" ? "Passenger" : "Commercial"}
       </div>
-      <div class="product-meta">Tersedia ${variantCount} tipe</div>
-      <div class="product-meta">Klik untuk lihat spesifikasi & simulasi kredit</div>
+      <div class="product-meta">Tersedia ${product.variants.length} tipe</div>
+      <div class="product-meta">Klik untuk lihat tipe, spesifikasi & simulasi kredit</div>
     `;
 
     card.addEventListener("click", () => openProductModal(product.id));
@@ -1224,4 +1231,5 @@ document.addEventListener("DOMContentLoaded", () => {
   if (dNext) dNext.addEventListener("click", showNextDelivery);
 
 });
+
 
