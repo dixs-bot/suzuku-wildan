@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <!-- Halaman utama -->
+  <url>
+    <loc>https://suzukinjs.id/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- (Opsional ke depan) Landing khusus promo / model 
+       Nanti kalau kamu bikin halaman baru statis, 
+       tinggal duplikat blok <url> ini dan ubah <loc>-nya.
+  -->
+  <!--
+  <url>
+    <loc>https://suzukinjs.id/xl7-kuro-bandung</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://suzukinjs.id/ertiga-hybrid-bandung</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  -->
+</urlset>
