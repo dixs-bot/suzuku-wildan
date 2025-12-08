@@ -171,7 +171,7 @@ const products = [
     id: "xl7",
     name: "XL7 Hybrid",
     category: "passenger",
-    image: "Suzuki_XL7_ALPHA_KURO_IVORY-KURO.png",
+    image: "KURO-KURO.png",
     variants: [
       {
         id: "zeta-mt",
@@ -1196,4 +1196,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if (dPrev) dPrev.addEventListener("click", showPrevDelivery);
   if (dNext) dNext.addEventListener("click", showNextDelivery);
+
 });
