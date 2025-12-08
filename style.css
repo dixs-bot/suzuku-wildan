@@ -911,4 +911,45 @@ a {
 .footer-note {
   max-width: 680px;
   margin: 4px auto 0;
+
+}
+/* ---- HERO 2 COLUMN ---- */
+.hero-content.two-column{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+
+/* text area */
+.hero-left{
+ flex:1;
+}
+
+/* image area */
+.hero-right{
+ flex:1;
+ display:flex;
+ justify-content:center;
+}
+
+.sales-photo{
+ width:350px;
+ height:auto;
+ border-radius:20px;
+ object-fit:cover;
+ box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+
+
+/* ---- RESPONSIVE MOBILE ---- */
+@media(max-width:768px){
+  .hero-content.two-column{
+    flex-direction:column;
+    text-align:center;
+  }
+  .hero-right{
+    order:-1; /* foto di atas saat mobile */
+  }
 }
