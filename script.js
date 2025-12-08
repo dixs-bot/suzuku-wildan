@@ -167,111 +167,137 @@ const products = [
     ]
   },
 
-  {
-    id: "xl7",
-    name: "XL7 Hybrid",
-    category: "passenger",
-    image: "KURO-KURO.png",
-    variants: [
-      {
-        id: "zeta-mt",
-        name: "Zeta MT",
-        otr: 269900000,
-        specs: {
-          engine: "1.5L Hybrid",
-          transmission: "Manual",
-          passengers: 7,
-          safety: ["ABS", "Dual Airbag"],
-          features: ["Head Unit Touchscreen", "Roof Rail"]
-        }
-      },
-      {
-        id: "zeta-at",
-        name: "Zeta AT",
-        otr: 281100000,
-        specs: {
-          engine: "1.5L Hybrid",
-          transmission: "Automatic",
-          passengers: 7,
-          safety: ["ABS", "Dual Airbag"],
-          features: ["Head Unit Touchscreen", "Roof Rail"]
-        }
-      },
-      {
-        id: "beta-mt-hybrid",
-        name: "Beta MT Hybrid",
-        otr: 292200000,
-        specs: {
-          engine: "1.5L Hybrid",
-          transmission: "Manual",
-          passengers: 7,
-          safety: ["ABS", "ESP", "Hill Hold Control"],
-          features: ["Cruise Control", "Keyless Entry"]
-        }
-      },
-      {
-        id: "beta-at-hybrid",
-        name: "Beta AT Hybrid",
-        otr: 303100000,
-        specs: {
-          engine: "1.5L Hybrid",
-          transmission: "Automatic",
-          passengers: 7,
-          safety: ["ABS", "ESP", "Hill Hold Control"],
-          features: ["Cruise Control", "Keyless Entry"]
-        }
-      },
-      {
-        id: "alpha-mt-hybrid",
-        name: "Alpha MT Hybrid",
-        otr: 302300000,
-        specs: {
-          engine: "1.5L Hybrid",
-          transmission: "Manual",
-          passengers: 7,
-          safety: ["ABS", "ESP", "Hill Hold Control"],
-          features: ["Two Tone Roof (opsi)", "Leather Seat (opsi)"]
-        }
-      },
-      {
-        id: "alpha-mt-hybrid-2tone",
-        name: "Alpha MT Hybrid 2 Tone",
-        otr: 304300000,
-        specs: {
-          engine: "1.5L Hybrid",
-          transmission: "Manual",
-          passengers: 7,
-          safety: ["ABS", "ESP", "Hill Hold Control"],
-          features: ["Two Tone Roof", "Bodykit Alpha"]
-        }
-      },
-      {
-        id: "alpha-at-hybrid",
-        name: "Alpha AT Hybrid",
-        otr: 313200000,
-        specs: {
-          engine: "1.5L Hybrid",
-          transmission: "Automatic",
-          passengers: 7,
-          safety: ["ABS", "ESP", "Hill Hold Control"],
-          features: ["Two Tone Roof (opsi)", "Cruise Control"]
-        }
-      },
-      {
-        id: "alpha-at-hybrid-2tone",
-        name: "Alpha AT Hybrid 2 Tone",
-        otr: 315300000,
-        specs: {
-          engine: "1.5L Hybrid",
-          transmission: "Automatic",
-          passengers: 7,
-          safety: ["ABS", "ESP", "Hill Hold Control"],
-          features: ["Two Tone Roof", "Cruise Control"]
-        }
+ {
+  id: "xl7",
+  name: "XL7 Hybrid",
+  category: "passenger",
+  image: "Suzuki_XL7_ALPHA_KURO_IVORY-KURO.png",
+  variants: [
+    {
+      id: "zeta-mt",
+      name: "Zeta MT",
+      otr: 269900000,
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Manual",
+        passengers: 7,
+        safety: ["ABS", "Dual Airbag"],
+        features: ["Head Unit Touchscreen", "Roof Rail"]
       }
-    ]
-  },
+    },
+    {
+      id: "zeta-at",
+      name: "Zeta AT",
+      otr: 281100000,
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Automatic",
+        passengers: 7,
+        safety: ["ABS", "Dual Airbag"],
+        features: ["Head Unit Touchscreen", "Roof Rail"]
+      }
+    },
+    {
+      id: "beta-mt-hybrid",
+      name: "Beta MT Hybrid",
+      otr: 292200000,
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Manual",
+        passengers: 7,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["Cruise Control", "Keyless Entry"]
+      }
+    },
+    {
+      id: "beta-at-hybrid",
+      name: "Beta AT Hybrid",
+      otr: 303100000,
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Automatic",
+        passengers: 7,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["Cruise Control", "Keyless Entry"]
+      }
+    },
+    {
+      id: "alpha-mt-hybrid",
+      name: "Alpha MT Hybrid",
+      otr: 302300000,
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Manual",
+        passengers: 7,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["Two Tone Roof (opsi)", "Leather Seat (opsi)"]
+      }
+    },
+    {
+      id: "alpha-mt-hybrid-2tone",
+      name: "Alpha MT Hybrid 2 Tone",
+      otr: 304300000,
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Manual",
+        passengers: 7,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["Two Tone Roof", "Bodykit Alpha"]
+      }
+    },
+    {
+      id: "alpha-at-hybrid",
+      name: "Alpha AT Hybrid",
+      otr: 313200000,
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Automatic",
+        passengers: 7,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["Two Tone Roof (opsi)", "Cruise Control"]
+      }
+    },
+    {
+      id: "alpha-at-hybrid-2tone",
+      name: "Alpha AT Hybrid 2 Tone",
+      otr: 315300000,
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Automatic",
+        passengers: 7,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["Two Tone Roof", "Cruise Control"]
+      }
+    },
 
+    /* ================== XL7 KURO BARU ================== */
+    {
+      id: "alpha-kuro-at-2tone",
+      name: "Alpha Kuro AT 2 Tone",
+      otr: 320300000, // Rp 320,300,000
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Automatic",
+        passengers: 7,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["Bodykit Kuro", "Two Tone Roof", "Cruise Control"]
+      }
+    },
+    {
+      id: "alpha-kuro-at",
+      name: "Alpha Kuro AT",
+      otr: 318200000, // Rp 318.200.000
+      specs: {
+        engine: "1.5L Hybrid",
+        transmission: "Automatic",
+        passengers: 7,
+        safety: ["ABS", "ESP", "Hill Hold Control"],
+        features: ["Bodykit Kuro", "Spoiler Hitam", "Cruise Control"]
+      }
+    }
+    /* ==================================================== */
+  ]
+},
   {
     id: "baleno",
     name: "New Baleno",
@@ -1198,3 +1224,4 @@ document.addEventListener("DOMContentLoaded", () => {
   if (dNext) dNext.addEventListener("click", showNextDelivery);
 
 });
+
