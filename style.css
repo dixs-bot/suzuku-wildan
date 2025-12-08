@@ -953,3 +953,35 @@ a {
     order:-1; /* foto di atas saat mobile */
   }
 }
+
+/* ===== BADGE DI KARTU PRODUK ===== */
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* bentuk badge umum */
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  z-index: 2;
+}
+
+/* Fronx – mobil baru */
+.badge-new {
+  background: linear-gradient(135deg, #ff6b6b, #ff9f43);
+}
+
+/* XL7 – edisi Kuro */
+.badge-kuro {
+  background: linear-gradient(135deg, #111827, #4b5563);
+}
