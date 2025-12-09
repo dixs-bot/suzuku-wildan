@@ -1100,3 +1100,51 @@ a {
   margin: 4px auto 0;
 
 }
+
+/* =====================================
+   PAGINATION UNTUK LANDING / ARTIKEL
+===================================== */
+
+.landing-pagination {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.landing-page-btn {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  background: #ffffff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.12s ease;
+}
+
+.landing-page-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(37, 99, 235, 0.9);
+}
+
+.landing-page-btn.active {
+  background: #1d4ed8;
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
+.landing-page-btn.disabled {
+  opacity: 0.45;
+  cursor: default;
+  transform: none;
+}
