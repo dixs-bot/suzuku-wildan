@@ -1018,11 +1018,31 @@ function renderProductModalHeader() {
   const priceEl = qs("modal-product-price");
   const descEl = qs("modal-product-description");
 
-  if (nameEl) nameEl.textContent = currentProduct.name;
+  if (nameEl) nameEl.textContent = currentProduct.name || "-";
   if (taglineEl) taglineEl.textContent = currentProduct.category === "passenger" ? "Kategori: Passenger" : "Kategori: Commercial";
-  if (imgEl) imgEl.src = currentProduct.image || "";
-  if (priceEl) priceEl.textContent = currentVariant ? "Rp " + formatRupiah(currentVariant.otr) : "-";
-  if (descEl) descEl.textContent = currentProduct.description || `${currentProduct.name} - info lengkap tersedia di tab spesifikasi.`;
+
+  // image safe set
+  if (imgEl) {
+    if (currentProduct.image) {
+      imgEl.src = currentProduct.image;
+      imgEl.alt = currentProduct.name || "Mobil Suzuki";
+    } else {
+      imgEl.removeAttribute("src");
+      imgEl.alt = currentProduct.name || "Mobil Suzuki";
+    }
+  }
+
+  // ensure currentVariant exists; fallback ke varian pertama jika perlu
+  if (!currentVariant || !currentProduct.variants || !currentProduct.variants.length) {
+    currentVariant = (currentProduct.variants && currentProduct.variants[0]) || null;
+  }
+
+  // price fallback
+  if (priceEl) {
+    priceEl.textContent = currentVariant && currentVariant.otr ? "Rp " + formatRupiah(currentVariant.otr) : "Rp -";
+  }
+
+  if (descEl) descEl.textContent = currentProduct.description || ${currentProduct.name} - info lengkap tersedia di tab spesifikasi.;
 }
 
 function renderVariantButtons() {
@@ -1248,28 +1268,46 @@ function initGlobalSimulation() {
   const form = qs("global-simulation-form");
   const resultEl = qs("global-simulation-result");
 
-  if (!productSelect || !variantSelect || !form) return;
+  if (!productSelect || !variantSelect || !form) {
+    console.warn("Global simulation: Elemen select/form tidak ditemukan. Pastikan ID di HTML sesuai.");
+    return;
+  }
 
+  // Bersihkan dulu
+  productSelect.innerHTML = "";
+  variantSelect.innerHTML = "";
+
+  // Isi produk
   products.forEach((p, index) => {
     const opt = document.createElement("option");
     opt.value = p.id;
-    opt.textContent = p.name;
-    if (index === 0) opt.selected = true;
+    opt.textContent = p.name || ("Produk " + (index+1));
     productSelect.appendChild(opt);
   });
 
+  // helper update variants dan harga
   function updateVariants() {
     const productId = productSelect.value;
     const product = products.find((p) => p.id === productId);
-    if (!product) return;
     variantSelect.innerHTML = "";
-    product.variants.forEach((v, index) => {
+    if (!product) {
+      const opt = document.createElement("option");
+      opt.value = "";
+      opt.textContent = "Tipe tidak tersedia";
+      variantSelect.appendChild(opt);
+      if (priceInput) priceInput.value = "";
+      return;
+    }
+    (product.variants || []).forEach((v, idx) => {
       const opt = document.createElement("option");
       opt.value = v.id;
-      opt.textContent = v.name;
-      if (index === 0) opt.selected = true;
+      opt.textContent = v.name || ("Tipe " + (idx+1));
       variantSelect.appendChild(opt);
     });
+    // pilih varian pertama kalau belum ada nilai
+    if (!variantSelect.value && product.variants && product.variants.length) {
+      variantSelect.value = product.variants[0].id;
+    }
     updatePriceFromSelection();
   }
 
@@ -1277,31 +1315,37 @@ function initGlobalSimulation() {
     const productId = productSelect.value;
     const variantId = variantSelect.value;
     const product = products.find((p) => p.id === productId);
-    if (!product) return;
-    const variant = product.variants.find((v) => v.id === variantId);
-    if (!variant) return;
-    priceInput.value = formatRupiah(variant.otr);
+    if (!product) {
+      if (priceInput) priceInput.value = "";
+      return;
+    }
+    const variant = (product.variants || []).find((v) => v.id === variantId) || product.variants[0];
+    if (variant && priceInput) {
+      priceInput.value = formatRupiah(variant.otr || 0);
+    } else if (priceInput) {
+      priceInput.value = "";
+    }
   }
 
+  // events
   productSelect.addEventListener("change", updateVariants);
   variantSelect.addEventListener("change", updatePriceFromSelection);
 
+  // inisialisasi pertama
+  if (productSelect.options.length) {
+    productSelect.selectedIndex = 0;
+  }
   updateVariants();
 
+  // form submit (sama seperti sebelumnya)
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-
     const price = parseRupiah(priceInput.value);
     const dp = parseRupiah(dpInput.value);
     const tenor = Number(tenorInput.value || 0);
     const interest = Number(interestInput.value || 0);
 
-    const { monthlyInstallment, totalPayment, totalDP } = calculateInstallment(
-      price,
-      dp,
-      tenor,
-      interest
-    );
+    const { monthlyInstallment, totalPayment, totalDP } = calculateInstallment(price, dp, tenor, interest);
 
     if (resultEl) {
       resultEl.innerHTML = `
@@ -1313,7 +1357,6 @@ function initGlobalSimulation() {
     }
   });
 }
-
 /* ================================================================
    12. FORM KONTAK (DUMMY)
 ================================================================ */
@@ -1453,4 +1496,5 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.target === dOverlay) closeDeliveryModal();
     });
   }
+
 });
