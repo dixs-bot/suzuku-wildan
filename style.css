@@ -1205,3 +1205,19 @@ a {
 #beranda .hero-left p {
   color: #ffffff !important;
 }
+
+/* Judul & paragraf hero menjadi putih */
+#beranda .hero-left h1,
+#beranda .hero-left > p {
+  color: #ffffff !important;
+}
+
+/* Khusus untuk kartu sales: tetap warna hitam */
+.hero-sales-card {
+  color: #000000 !important;
+}
+
+.hero-sales-card .sales-name,
+.hero-sales-card .sales-role {
+  color: #000000 !important;
+}
