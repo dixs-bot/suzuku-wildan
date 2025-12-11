@@ -153,6 +153,26 @@
   <main>
     <!-- ================= HERO / BERANDA ================= -->
     <section id="beranda" class="hero">
+     <!-- ================= BACKGROUND VIDEO ================= -->
+<div class="hero-video-wrap" aria-hidden="true">
+  <video
+    id="hero-video"
+    class="hero-video"
+    playsinline
+    muted
+    loop
+    autoplay
+    preload="metadata"
+    poster="suzuki-hero-poster.jpg"
+  >
+    <source src="suzuki-fronx.mp4" type="video/mp4">
+    <!-- fallback jika video tidak didukung -->
+    Browser Anda tidak mendukung video.
+  </video>
+
+  <!-- overlay gelap supaya teks tetap terbaca -->
+  <div class="hero-video-overlay"></div>
+</div> 
       <div class="container hero-content two-column">
 
         <!-- TEXT -->
@@ -606,4 +626,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
