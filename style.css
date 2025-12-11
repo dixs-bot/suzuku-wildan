@@ -1221,3 +1221,17 @@ a {
 .hero-sales-card .sales-role {
   color: #000000 !important;
 }
+
+section#beranda .hero-left h1 {
+  color: #ffffff !important;
+}
+
+section#beranda .hero-left p:not(.sales-name):not(.sales-role) {
+  color: #ffffff !important;
+}
+.hero-sales-card,
+.hero-sales-card p,
+.hero-sales-card .sales-name,
+.hero-sales-card .sales-role {
+  color: #000000 !important;
+}
