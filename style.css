@@ -1148,3 +1148,51 @@ a {
   cursor: default;
   transform: none;
 }
+
+/* ==== Background video hero section ==== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #0b3a66;
+}
+
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Pastikan konten hero tetap muncul di depan video */
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Nonaktifkan video di mobile (hemat kuota + lebih ringan) */
+@media (max-width: 768px) {
+  .hero-video-wrap {
+    display: none;
+  }
+
+  .hero {
+    background-image: url('suzuki-hero-poster.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+}
