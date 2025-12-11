@@ -1196,3 +1196,12 @@ a {
     background-position: center;
   }
 }
+
+/* Warna putih khusus judul & paragraf pertama di hero */
+#beranda .hero-left h1 {
+  color: #ffffff !important;
+}
+
+#beranda .hero-left p {
+  color: #ffffff !important;
+}
