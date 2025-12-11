@@ -1223,25 +1223,94 @@ function calculateInstallment(price, dp, tenor, interestRateYearly) {
    10. FORM SIMULASI DI MODAL
 ================================================================ */
 
-function initModalSimulationForm() {
-  const form = qs("modal-simulation-form");
-  const resultEl = qs("modal-simulation-result");
-  if (!form) return;
+[20.16, 11/12/2025] Diki Wahyudin: function initGlobalSimulation() {
+  const productSelect = qs("global-product-select");
+  const variantSelect = qs("global-variant-select");
+  const priceInput = qs("global-price-input");
+  const dpInput = qs("global-dp-input");
+  const tenorInput = qs("global-tenor-input");
+  const interestInput = qs("global-interest-input");
+  const form = qs("global-simulation-form");
+  const resultEl = qs("global-simulation-result");
 
+  if (!productSelect || !variantSelect || !form) {
+    console.warn("Global simulation: Elemen select/form tidak ditemukan. Pastikan ID di HTML sesuai.");
+    return;
+  }
+
+  // Bersihkan dulu
+  productSelect.innerHTML = "";
+  variantSelect.innerHTML = "";
+
+  // Isi produk
+  products.forEach((p, index) => {
+    const opt = document.createElement("option");
+    opt.value = p.id;
+    opt.textContent = p.name || ("Produk " + (index+1));
+    productSelect.appendChild(opt);
+  });
+
+  // helper update variants dan harga
+  function updateVariants() {
+    const productId = productSelect.value;
+    const product = products.find((p) => p.id === productId);
+    variantSelect.innerHTML = "";
+    if (!product) {
+      const opt = document.createElement("option");
+      opt.value = "";
+      opt.textContent = "Tipe tidak tersedia";
+      variantSelect.appendChild(opt);
+      if (priceInput) priceInput.value = "";
+      return;
+    }
+    (product.variants || []).forEach((v, idx) => {
+      const opt = document.createElement("option");
+      opt.value = v.id;
+      opt.textContent = v.name || ("Tipe " + (idx+1));
+      variantSelect.appendChild(opt);
+    });
+    // pilih varian pertama kalau belum ada nilai
+    if (!variantSelect.value && product.variants && product.variants.length) {
+      variantSelect.value = product.variants[0].id;
+    }
+    updatePriceFromSelection();
+  }
+
+  function updatePriceFromSelection() {
+    const productId = productSelect.value;
+    const variantId = variantSelect.value;
+    const product = products.find((p) => p.id === productId);
+    if (!product) {
+      if (priceInput) priceInput.value = "";
+      return;
+    }
+    const variant = (product.variants || []).find((v) => v.id === variantId) || product.variants[0];
+    if (variant && priceInput) {
+      priceInput.value = formatRupiah(variant.otr || 0);
+    } else if (priceInput) {
+      priceInput.value = "";
+    }
+  }
+
+  // events
+  productSelect.addEventListener("change", updateVariants);
+  variantSelect.addEventListener("change", updatePriceFromSelection);
+
+  // inisialisasi pertama
+  if (productSelect.options.length) {
+    productSelect.selectedIndex = 0;
+  }
+  updateVariants();
+
+  // form submit (sama seperti sebelumnya)
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    const price = parseRupiah(priceInput.value);
+    const dp = parseRupiah(dpInput.value);
+    const tenor = Number(tenorInput.value || 0);
+    const interest = Number(interestInput.value || 0);
 
-    const price = parseRupiah(qs("modal-price-input") ? qs("modal-price-input").value : 0);
-    const dp = parseRupiah(qs("modal-dp-input") ? qs("modal-dp-input").value : 0);
-    const tenor = Number(qs("modal-tenor-input") ? qs("modal-tenor-input").value : 0);
-    const interest = Number(qs("modal-interest-input") ? qs("modal-interest-input").value : 0);
-
-    const { monthlyInstallment, totalPayment, totalDP } = calculateInstallment(
-      price,
-      dp,
-      tenor,
-      interest
-    );
+    const { monthlyInstallment, totalPayment, totalDP } = calculateInstallment(price, dp, tenor, interest);
 
     if (resultEl) {
       resultEl.innerHTML = `
@@ -1252,6 +1321,133 @@ function initModalSimulationForm() {
       `;
     }
   });
+}
+[20.30, 11/12/2025] Diki Wahyudin: function initGlobalSimulation() {
+  try {
+    const productSelect = qs("global-product-select");
+    const variantSelect = qs("global-variant-select");
+    const priceInput = qs("global-price-input");
+    const dpInput = qs("global-dp-input");
+    const tenorInput = qs("global-tenor-input");
+    const interestInput = qs("global-interest-input");
+    const form = qs("global-simulation-form");
+    const resultEl = qs("global-simulation-result");
+
+    if (!productSelect || !variantSelect || !form) {
+      console.warn("Global simulation: Elemen select/form tidak ditemukan. Pastikan ID di HTML sesuai.");
+      // Jika variantSelect tidak ada, buat placeholder agar tidak crash
+      if (productSelect && !variantSelect) {
+        const placeholder = document.createElement("select");
+        placeholder.id = "global-variant-select";
+        placeholder.disabled = true;
+        productSelect.insertAdjacentElement("afterend", placeholder);
+      }
+      return;
+    }
+
+    // Bersihkan dulu
+    productSelect.innerHTML = "";
+    variantSelect.innerHTML = "";
+
+    // Isi produk
+    products.forEach((p, index) => {
+      const opt = document.createElement("option");
+      opt.value = p.id;
+      opt.textContent = p.name || ("Produk " + (index + 1));
+      productSelect.appendChild(opt);
+    });
+
+    // helper update variants dan harga
+    function updateVariants() {
+      const productId = productSelect.value;
+      const product = products.find((p) => p.id === productId);
+      variantSelect.innerHTML = "";
+
+      if (!product) {
+        const opt = document.createElement("option");
+        opt.value = "";
+        opt.textContent = "Tipe tidak tersedia";
+        variantSelect.appendChild(opt);
+        if (priceInput) priceInput.value = "";
+        return;
+      }
+
+      (product.variants || []).forEach((v, idx) => {
+        const opt = document.createElement("option");
+        opt.value = v.id;
+        opt.textContent = v.name || ("Tipe " + (idx + 1));
+        variantSelect.appendChild(opt);
+      });
+
+      // pilih varian pertama kalau belum ada nilai
+      if ((!variantSelect.value || variantSelect.value === "") && product.variants && product.variants.length) {
+        variantSelect.value = product.variants[0].id;
+      }
+
+      // pastikan price terupdate
+      updatePriceFromSelection();
+    }
+
+    function updatePriceFromSelection() {
+      const productId = productSelect.value;
+      const variantId = variantSelect.value;
+      const product = products.find((p) => p.id === productId);
+      if (!product) {
+        if (priceInput) priceInput.value = "";
+        return;
+      }
+      const variant = (product.variants || []).find((v) => v.id === variantId) || product.variants[0];
+      if (variant && priceInput) {
+        priceInput.value = formatRupiah(variant.otr || 0);
+      } else if (priceInput) {
+        priceInput.value = "";
+      }
+    }
+
+    // events (safeguard: attach only jika elemen memang ada)
+    productSelect.addEventListener("change", () => {
+      updateVariants();
+      // juga trigger change pada variantSelect agar semua listener jalan
+      variantSelect.dispatchEvent(new Event("change"));
+    });
+
+    variantSelect.addEventListener("change", () => {
+      updatePriceFromSelection();
+    });
+
+    // inisialisasi pertama
+    if (productSelect.options.length) {
+      productSelect.selectedIndex = 0;
+    }
+    // panggil updateVariants lewat requestAnimationFrame agar HTML tersusun dulu
+    requestAnimationFrame(() => {
+      updateVariants();
+      // dispatch supaya UI/inputs terupdate (berguna bila browser tidak otomatis trigger)
+      variantSelect.dispatchEvent(new Event("change"));
+    });
+
+    // form submit (sama seperti sebelumnya)
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const price = parseRupiah(priceInput ? priceInput.value : 0);
+      const dp = parseRupiah(dpInput ? dpInput.value : 0);
+      const tenor = Number(tenorInput ? tenorInput.value : 0) || 0;
+      const interest = Number(interestInput ? interestInput.value : 0) || 0;
+
+      const { monthlyInstallment, totalPayment, totalDP } = calculateInstallment(price, dp, tenor, interest);
+
+      if (resultEl) {
+        resultEl.innerHTML = `
+          <p><strong>Total DP:</strong> Rp ${formatRupiah(Math.round(totalDP))}</p>
+          <p><strong>Cicilan per bulan:</strong> Rp ${formatRupiah(Math.round(monthlyInstallment))}</p>
+          <p><strong>Total pembayaran (termasuk DP):</strong> Rp ${formatRupiah(Math.round(totalPayment))}</p>
+          <p style="margin-top:8px;font-size:.8rem;color:#6b7280;">*Simulasi ini hanya ilustrasi. Paket resmi dan perhitungan aktual akan disesuaikan dengan SOP perusahaan dan leasing.</p>
+        `;
+      }
+    });
+  } catch (err) {
+    console.error("initGlobalSimulation error:", err);
+  }
 }
 
 /* ================================================================
@@ -1498,3 +1694,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
