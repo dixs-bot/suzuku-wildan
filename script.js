@@ -881,9 +881,10 @@ const deliveryImages = [
   { id: "d30", image: "suzuki-vitara-bandung.jpg", caption: "Suzuki Grand Vitara Bandung" },
   { id: "d31", image: "suzuki-xl7-bandung.jpg", caption: "Suzuki XL7 Bandung" },
   { id: "d32", image: "suzuki-xl7-hybrid-bandung.jpg", caption: "Suzuki XL7 Hybrid Bandung" },
-  { id: "d33", image: "test-drive-suzuki-bandung.jpg", caption: "Test Drive Suzuki Bandung" }
-  { id: "d34", image: "serah-terima.jpeg", caption: "TestSuzuki Bandung" }
-  { id: "d35", image: "serah-terima1.jpeg", caption: "Drive Suzuki Bandung" }
+ { id: "d33", image: "test-drive-suzuki-bandung.jpg", caption: "Test Drive Konsumen Suzuki Bandung" },
+{ id: "d34", image: "serah-terima.jpeg", caption: "Serah Terima Unit Suzuki Bandung" },
+{ id: "d35", image: "serah-terima1.jpeg", caption: "Pengiriman Mobil Suzuki Bandung" }
+
 ];
 
 /* ================================================================
@@ -1506,3 +1507,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
