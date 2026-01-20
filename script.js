@@ -882,6 +882,8 @@ const deliveryImages = [
   { id: "d31", image: "suzuki-xl7-bandung.jpg", caption: "Suzuki XL7 Bandung" },
   { id: "d32", image: "suzuki-xl7-hybrid-bandung.jpg", caption: "Suzuki XL7 Hybrid Bandung" },
   { id: "d33", image: "test-drive-suzuki-bandung.jpg", caption: "Test Drive Suzuki Bandung" }
+  { id: "d34", image: "serah-terima.jpeg", caption: "TestSuzuki Bandung" }
+  { id: "d35", image: "serah-terima1.jpeg", caption: "Drive Suzuki Bandung" }
 ];
 
 /* ================================================================
@@ -1502,4 +1504,5 @@ document.addEventListener("DOMContentLoaded", () => {
   } catch (err) {
     console.error("Initialization error:", err);
   }
+
 });
