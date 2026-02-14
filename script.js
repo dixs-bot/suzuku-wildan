@@ -1561,11 +1561,14 @@ setInterval(createKetupat, 1200);
 function updateRamadhanCountdown() {
 
   // SET TARGET TANGGAL (UBAH SESUAI KEBUTUHAN)
-const now = new Date();
-const targetDate = new Date(now.getTime() + (4 * 24 * 60 * 60 * 1000)).getTime();
+function updateRamadhanCountdown() {
+
+  const now = new Date().getTime();
+  const targetDate = now + (4 * 24 * 60 * 60 * 1000);
+
   const distance = targetDate - now;
 
-  if (distance < 0) return;
+  if (distance <= 0) return;
 
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -1579,6 +1582,7 @@ const targetDate = new Date(now.getTime() + (4 * 24 * 60 * 60 * 1000)).getTime()
 }
 
 setInterval(updateRamadhanCountdown, 1000);
+;
 
 function createKetupat() {
   const container = document.querySelector(".ketupat-container");
@@ -1601,5 +1605,6 @@ function createKetupat() {
 }
 
 setInterval(createKetupat, 1500);
+
 
 
