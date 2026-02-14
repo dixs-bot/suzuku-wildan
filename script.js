@@ -1508,3 +1508,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+/* =====================================================
+   RAMADHAN KETUPAT ANIMATION
+===================================================== */
+
+function createKetupat() {
+  const container = document.querySelector(".ketupat-container");
+  if (!container) return;
+
+  const ketupat = document.createElement("div");
+  ketupat.classList.add("ketupat");
+
+  ketupat.style.left = Math.random() * window.innerWidth + "px";
+  ketupat.style.animationDuration = 5 + Math.random() * 5 + "s";
+
+  container.appendChild(ketupat);
+
+  setTimeout(() => {
+    ketupat.remove();
+  }, 10000);
+}
+
+setInterval(createKetupat, 800);
+
