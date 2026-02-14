@@ -1235,3 +1235,51 @@ section#beranda .hero-left p:not(.sales-name):not(.sales-role) {
 .hero-sales-card .sales-role {
   color: #000000 !important;
 }
+
+/* =====================================================
+   RAMADHAN PROFESSIONAL THEME
+===================================================== */
+
+.ramadhan-theme {
+  background: linear-gradient(180deg, #041f15 0%, #063d2c 100%);
+  color: #f1f5f9;
+}
+
+.ramadhan-theme .navbar {
+  background: rgba(4, 31, 21, 0.95);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.ramadhan-theme .nav-menu a {
+  color: #ffffff;
+}
+
+.ramadhan-theme .nav-menu a:hover {
+  color: #d4af37;
+  border-color: #d4af37;
+}
+
+.ramadhan-theme .hero {
+  background:
+    radial-gradient(circle at top right, rgba(212,175,55,0.15), transparent 60%),
+    linear-gradient(135deg, #063d2c 0%, #021c14 100%);
+}
+
+.ramadhan-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #caa636, #ffd700);
+  color: #041f15;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.ramadhan-theme .btn-primary {
+  background: linear-gradient(135deg, #caa636, #ffd700);
+  color: #041f15;
+}
+
+.ramadhan-theme .section-title {
+  color: #d4af37;
+}
