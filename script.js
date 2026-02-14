@@ -1531,3 +1531,26 @@ function createKetupat() {
 
 setInterval(createKetupat, 800);
 
+/* =====================================================
+   RAMADHAN PREMIUM FLOATING KETUPAT
+===================================================== */
+
+function createKetupat() {
+  const container = document.querySelector(".ketupat-container");
+  if (!container) return;
+
+  const ketupat = document.createElement("div");
+  ketupat.classList.add("ketupat");
+
+  ketupat.style.left = Math.random() * window.innerWidth + "px";
+  ketupat.style.animationDuration = 8 + Math.random() * 5 + "s";
+
+  container.appendChild(ketupat);
+
+  setTimeout(() => {
+    ketupat.remove();
+  }, 12000);
+}
+
+setInterval(createKetupat, 1200);
+
