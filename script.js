@@ -1564,7 +1564,7 @@ function updateRamadhanCountdown() {
 function updateRamadhanCountdown() {
 
   const now = new Date().getTime();
-  const targetDate = now + (4 * 24 * 60 * 60 * 1000);
+   const targetDate = new Date("2026-02-18T00:00:00").getTime();
 
   const distance = targetDate - now;
 
@@ -1584,6 +1584,7 @@ function updateRamadhanCountdown() {
 setInterval(updateRamadhanCountdown, 1000);
 ;
 }
+
 
 
 
