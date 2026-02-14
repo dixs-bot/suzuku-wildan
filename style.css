@@ -1565,3 +1565,113 @@ section#beranda .hero-left p:not(.sales-name):not(.sales-role) {
   color: #111;
   font-size: 0.85rem;
 }
+
+/* =====================================================
+   RAMADHAN HERO LARGE SECTION
+===================================================== */
+
+.ramadhan-hero-section {
+  position: relative;
+  padding: 120px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #0b1c2d 0%, #071521 60%, #050d15 100%);
+  color: #f8f5e6;
+  overflow: hidden;
+}
+
+/* subtle pattern */
+.ramadhan-hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,215,0,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+}
+
+.ramadhan-hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+}
+
+.ramadhan-top-text {
+  letter-spacing: 6px;
+  font-size: 14px;
+  color: #caa636;
+  margin-bottom: 20px;
+}
+
+.ramadhan-big-title {
+  font-size: 80px;
+  font-weight: 700;
+  margin: 0;
+  font-family: serif;
+}
+
+.ramadhan-subtitle {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ddd8c4;
+}
+
+/* Countdown Box */
+.ramadhan-countdown-box {
+  margin-top: 60px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(10, 20, 35, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,215,0,0.2);
+  display: inline-block;
+}
+
+.countdown-label {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #caa636;
+}
+
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.countdown-timer div {
+  text-align: center;
+}
+
+.countdown-timer span {
+  display: block;
+  font-size: 32px;
+  color: #f8f5e6;
+}
+
+.countdown-timer small {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.separator {
+  font-size: 30px;
+  color: #caa636;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+  .ramadhan-big-title {
+    font-size: 48px;
+  }
+
+  .countdown-timer {
+    gap: 10px;
+    font-size: 20px;
+  }
+
+}
