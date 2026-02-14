@@ -1621,6 +1621,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+/* =====================================================
+   AUTO ADD NIK LABEL TO ALL PRICE LIST
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  function addNikLabelToPrices() {
+
+    const priceElements = document.querySelectorAll(
+      ".price, .product-price, .variant-price"
+    );
+
+    priceElements.forEach(price => {
+
+      // Cegah duplikat
+      if (price.querySelector(".nik-badge")) return;
+
+      const nik = document.createElement("span");
+      nik.className = "nik-badge";
+      nik.innerText = "NIK 2025 & 2026";
+
+      price.appendChild(nik);
+    });
+  }
+
+  // Jalankan setelah render awal
+  setTimeout(addNikLabelToPrices, 500);
+
+});
+
 
 
 
