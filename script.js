@@ -1561,8 +1561,8 @@ setInterval(createKetupat, 1200);
 function updateRamadhanCountdown() {
 
   // SET TARGET TANGGAL (UBAH SESUAI KEBUTUHAN)
-  const targetDate = new Date("March 18, 2026 00:00:00").getTime();
-  const now = new Date().getTime();
+const now = new Date();
+const targetDate = new Date(now.getTime() + (4 * 24 * 60 * 60 * 1000)).getTime();
   const distance = targetDate - now;
 
   if (distance < 0) return;
@@ -1579,4 +1579,5 @@ function updateRamadhanCountdown() {
 }
 
 setInterval(updateRamadhanCountdown, 1000);
+
 
