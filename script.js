@@ -1580,4 +1580,26 @@ const targetDate = new Date(now.getTime() + (4 * 24 * 60 * 60 * 1000)).getTime()
 
 setInterval(updateRamadhanCountdown, 1000);
 
+function createKetupat() {
+  const container = document.querySelector(".ketupat-container");
+  if (!container) return;
+
+  const ketupat = document.createElement("div");
+  ketupat.classList.add("ketupat");
+
+  const randomX = Math.random() * window.innerWidth;
+  const duration = 10 + Math.random() * 6;
+
+  ketupat.style.left = randomX + "px";
+  ketupat.style.animationDuration = duration + "s";
+
+  container.appendChild(ketupat);
+
+  setTimeout(() => {
+    ketupat.remove();
+  }, duration * 1000);
+}
+
+setInterval(createKetupat, 1500);
+
 
