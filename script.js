@@ -1555,35 +1555,73 @@ function createKetupat() {
 setInterval(createKetupat, 1200);
 
 /* =====================================================
-   RAMADHAN COUNTDOWN
+   RAMADHAN PREMIUM SYSTEM CLEAN
 ===================================================== */
 
+/* ===== COUNTDOWN ===== */
+
 function updateRamadhanCountdown() {
 
-  // SET TARGET TANGGAL (UBAH SESUAI KEBUTUHAN)
-function updateRamadhanCountdown() {
-
+  const targetDate = new Date("2026-02-18T00:00:00").getTime();
   const now = new Date().getTime();
-   const targetDate = new Date("2026-02-18T00:00:00").getTime();
-
   const distance = targetDate - now;
 
-  if (distance <= 0) return;
+  if (distance <= 0) {
+    const label = document.querySelector(".countdown-label");
+    if (label) label.innerText = "Ramadhan telah tiba!";
+    return;
+  }
 
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  document.getElementById("rd-hari").innerText = days.toString().padStart(2, "0");
-  document.getElementById("rd-jam").innerText = hours.toString().padStart(2, "0");
-  document.getElementById("rd-menit").innerText = minutes.toString().padStart(2, "0");
-  document.getElementById("rd-detik").innerText = seconds.toString().padStart(2, "0");
+  const d = document.getElementById("rd-hari");
+  const h = document.getElementById("rd-jam");
+  const m = document.getElementById("rd-menit");
+  const s = document.getElementById("rd-detik");
+
+  if (d) d.innerText = days.toString().padStart(2, "0");
+  if (h) h.innerText = hours.toString().padStart(2, "0");
+  if (m) m.innerText = minutes.toString().padStart(2, "0");
+  if (s) s.innerText = seconds.toString().padStart(2, "0");
 }
 
-setInterval(updateRamadhanCountdown, 1000);
-;
+/* ===== KETUPAT FLOAT ===== */
+
+function createKetupat() {
+  const container = document.querySelector(".ketupat-container");
+  if (!container) return;
+
+  const ketupat = document.createElement("div");
+  ketupat.classList.add("ketupat");
+
+  const randomX = Math.random() * window.innerWidth;
+  const duration = 10 + Math.random() * 6;
+
+  ketupat.style.left = randomX + "px";
+  ketupat.style.animationDuration = duration + "s";
+
+  container.appendChild(ketupat);
+
+  setTimeout(() => {
+    ketupat.remove();
+  }, duration * 1000);
 }
+
+/* ===== INIT AFTER PAGE LOAD ===== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  updateRamadhanCountdown();
+  setInterval(updateRamadhanCountdown, 1000);
+
+  setInterval(createKetupat, 1500);
+
+});
+
+
 
 
 
