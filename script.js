@@ -1583,6 +1583,8 @@ function updateRamadhanCountdown() {
 
 setInterval(updateRamadhanCountdown, 1000);
 ;
+}
+
 
 
 
