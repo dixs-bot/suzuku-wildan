@@ -16,9 +16,11 @@ const products = [
     badge: "new", // NEW LAUNCH
     variants: [
       {
+        {
         id: "gl-mt",
-        name: "GL MT",
-        otr: 261800000,
+name: "GL MT",
+otr: 261800000,
+otr2026: 266800000,
         colors: [
           { name: "Pearl Arctic White", hex: "#f9fafb" },
           { name: "Grandeur Grey", hex: "#4b5563" },
@@ -33,9 +35,10 @@ const products = [
         }
       },
       {
-        id: "gl-at",
-        name: "GL AT",
-        otr: 273800000,
+       id: "gl-at",
+name: "GL AT",
+otr: 273800000,
+otr2026: 278800000,,
         colors: [
           { name: "Pearl Arctic White", hex: "#f9fafb" },
           { name: "Grandeur Grey", hex: "#4b5563" },
@@ -51,8 +54,9 @@ const products = [
       },
       {
         id: "gx-mt",
-        name: "GX MT",
-        otr: 278800000,
+name: "GX MT",
+otr: 278800000,
+otr2026: 283800000,
         colors: [
           { name: "Pearl Arctic White", hex: "#f9fafb" },
           { name: "Grandeur Grey", hex: "#4b5563" },
@@ -221,9 +225,11 @@ const products = [
     badge: "kuro",
     variants: [
       {
-        id: "zeta-mt",
-        name: "Zeta MT",
-        otr: 269900000,
+       {
+id: "zeta-mt",
+name: "Zeta MT",
+otr: 269900000,
+otr2026: 271500000,
         colors: [
           { name: "Pearl Snow White", hex: "#f3f4f6" },
           { name: "Rising Orange", hex: "#ea580c" },
@@ -238,9 +244,10 @@ const products = [
         }
       },
       {
-        id: "zeta-at",
-        name: "Zeta AT",
-        otr: 281100000,
+id: "zeta-at",
+name: "Zeta AT",
+otr: 281100000,
+otr2026: 282500000,
         colors: [
           { name: "Pearl Snow White", hex: "#f3f4f6" },
           { name: "Rising Orange", hex: "#ea580c" },
@@ -255,9 +262,10 @@ const products = [
         }
       },
       {
-        id: "beta-mt-hybrid",
-        name: "Beta MT Hybrid",
-        otr: 292200000,
+id: "beta-mt-hybrid",
+name: "Beta MT Hybrid",
+otr: 292200000,
+otr2026: 299000000,
         colors: [
           { name: "Pearl Snow White", hex: "#f3f4f6" },
           { name: "Cool Black", hex: "#020617" },
@@ -271,10 +279,11 @@ const products = [
           features: ["Cruise Control", "Keyless Entry"]
         }
       },
-      {
-        id: "beta-at-hybrid",
-        name: "Beta AT Hybrid",
-        otr: 303100000,
+     {
+id: "beta-at-hybrid",
+name: "Beta AT Hybrid",
+otr: 303100000,
+otr2026: 310000000,
         colors: [
           { name: "Pearl Snow White", hex: "#f3f4f6" },
           { name: "Cool Black", hex: "#020617" },
@@ -288,10 +297,11 @@ const products = [
           features: ["Cruise Control", "Keyless Entry"]
         }
       },
-      {
-        id: "alpha-mt-hybrid",
-        name: "Alpha MT Hybrid",
-        otr: 302300000,
+     {
+id: "alpha-mt-hybrid",
+name: "Alpha MT Hybrid",
+otr: 302300000,
+otr2026: 310000000,
         colors: [
           { name: "Pearl Snow White", hex: "#f3f4f6" },
           { name: "Two Tone White / Black", hex: "#e5e7eb" },
@@ -306,9 +316,10 @@ const products = [
         }
       },
       {
-        id: "alpha-mt-hybrid-2tone",
-        name: "Alpha MT Hybrid 2 Tone",
-        otr: 304300000,
+id: "alpha-at-hybrid",
+name: "Alpha AT Hybrid",
+otr: 313200000,
+otr2026: 321500000,
         colors: [
           { name: "Two Tone Orange / Black", hex: "#ea580c" },
           { name: "Two Tone White / Black", hex: "#e5e7eb" }
@@ -338,10 +349,11 @@ const products = [
           features: ["Two Tone Roof (opsi)", "Cruise Control"]
         }
       },
-      {
-        id: "alpha-at-hybrid-2tone",
-        name: "Alpha AT Hybrid 2 Tone",
-        otr: 315300000,
+     {
+id: "alpha-at-hybrid-2tone",
+name: "Alpha AT Hybrid 2 Tone",
+otr: 315300000,
+otr2026: 323500000,
         colors: [
           { name: "Two Tone Orange / Black", hex: "#ea580c" },
           { name: "Two Tone White / Black", hex: "#e5e7eb" }
@@ -356,9 +368,11 @@ const products = [
       },
       // ===== XL7 KURO BARU =====
       {
-        id: "alpha-kuro-at-2tone",
-        name: "Alpha Kuro AT (2-Tone)",
-        otr: 320300000,
+        {
+id: "alpha-kuro-at",
+name: "Alpha Kuro AT",
+otr: 318200000,
+otr2026: 323500000,
         colors: [
           { name: "Prime Cool Black", hex: "#020617" },
           { name: "Rising Orange + Black", hex: "#b45309" }
@@ -372,9 +386,11 @@ const products = [
         }
       },
       {
-        id: "alpha-kuro-at",
-        name: "Alpha Kuro AT",
-        otr: 318200000,
+       {
+id: "alpha-kuro-at-2tone",
+name: "Alpha Kuro AT (2-Tone)",
+otr: 320300000,
+otr2026: 325500000,
         colors: [
           { name: "Prime Cool Black", hex: "#020617" },
           { name: "Pearl White", hex: "#f9fafb" }
@@ -674,9 +690,11 @@ const products = [
     image: "RED APV_ARENA.png",
     variants: [
       {
-        id: "ge-ps-mt-ab",
-        name: "APV GE PS MT AB",
-        otr: 228200000,
+        {
+id: "ge-ps-mt-ab",
+name: "APV GE PS MT AB",
+otr: 228200000,
+otr2026: 229000000,
         colors: [
           { name: "Superior White", hex: "#f9fafb" },
           { name: "Silky Silver", hex: "#d4d4d8" },
@@ -690,10 +708,11 @@ const products = [
           features: ["Power Steering", "AC"]
         }
       },
-      {
-        id: "gl-mt-ab",
-        name: "APV GL MT AB",
-        otr: 236400000,
+    {
+id: "gl-mt-ab",
+name: "APV GL MT AB",
+otr: 236400000,
+otr2026: 237500000,
         colors: [
           { name: "Superior White", hex: "#f9fafb" },
           { name: "Silky Silver", hex: "#d4d4d8" },
@@ -707,10 +726,11 @@ const products = [
           features: ["AC Double Blower", "Power Steering"]
         }
       },
-      {
-        id: "gx-mt-ab",
-        name: "APV GX MT AB",
-        otr: 250500000,
+   {
+id: "gx-mt-ab",
+name: "APV GX MT AB",
+otr: 250500000,
+otr2026: 251500000,
         colors: [
           { name: "Superior White", hex: "#f9fafb" },
           { name: "Graphite Grey", hex: "#4b5563" },
@@ -724,10 +744,11 @@ const products = [
           features: ["Interior Lebih Mewah", "AC Double Blower"]
         }
       },
-      {
-        id: "sgx-mt-ab",
-        name: "APV SGX MT AB",
-        otr: 253900000,
+     {
+id: "sgx-mt-ab",
+name: "APV SGX MT AB",
+otr: 253900000,
+otr2026: 255000000,
         colors: [
           { name: "Superior White", hex: "#f9fafb" },
           { name: "Silky Silver", hex: "#d4d4d8" },
@@ -752,9 +773,11 @@ const products = [
     image: "APV BLIND VAN.jpg",
     variants: [
       {
-        id: "blindvan",
-        name: "Blind Van",
-        otr: 185200000,
+        {
+id: "blindvan",
+name: "Blind Van",
+otr: 185200000,
+otr2026: 187000000,
         colors: [
           { name: "Superior White", hex: "#f9fafb" },
           { name: "Silky Silver", hex: "#d4d4d8" }
@@ -776,10 +799,11 @@ const products = [
     category: "commercial",
     image: "White-NEW_CARRY_PICK-UP.png",
     variants: [
-      {
-        id: "fd",
-        name: "Pick Up FD",
-        otr: 175500000,
+    {
+id: "fd",
+name: "Pick Up FD",
+otr: 175500000,
+otr2026: 177900000,
         colors: [
           { name: "Superior White", hex: "#f9fafb" },
           { name: "Pearl Red", hex: "#b91c1c" }
@@ -792,10 +816,11 @@ const products = [
           features: ["Flat Deck", "Bak Luas"]
         }
       },
-      {
-        id: "wd",
-        name: "Pick Up WD",
-        otr: 176600000,
+     {
+id: "wd",
+name: "Pick Up WD",
+otr: 176600000,
+otr2026: 179000000,
         colors: [
           { name: "Superior White", hex: "#f9fafb" },
           { name: "Real Black", hex: "#020617" }
@@ -809,9 +834,10 @@ const products = [
         }
       },
       {
-        id: "fd-ac-ps",
-        name: "Pick Up FD AC PS",
-        otr: 183500000,
+id: "fd-ac-ps",
+name: "Pick Up FD AC PS",
+otr: 183500000,
+otr2026: 185900000,
         colors: [
           { name: "Superior White", hex: "#f9fafb" },
           { name: "Silky Silver", hex: "#d4d4d8" }
@@ -824,10 +850,11 @@ const products = [
           features: ["Flat Deck", "AC", "Power Steering"]
         }
       },
-      {
-        id: "wd-ac-ps",
-        name: "Pick Up WD AC PS",
-        otr: 184400000,
+    {
+id: "wd-ac-ps",
+name: "Pick Up WD AC PS",
+otr: 184400000,
+otr2026: 186800000,
         colors: [
           { name: "Superior White", hex: "#f9fafb" },
           { name: "Real Black", hex: "#020617" }
@@ -1127,8 +1154,24 @@ function updateProductModalView() {
     return;
   }
 
-  const priceEl = qs("modal-price") || qs("modal-product-price") || qs("modal-price-display");
-  if (priceEl) priceEl.textContent = "Rp " + formatRupiah(currentVariant.otr || 0);
+ const priceEl = qs("modal-price") || qs("modal-product-price") || qs("modal-price-display");
+
+if (priceEl) {
+
+  if (currentVariant.otr2026) {
+
+    priceEl.innerHTML = `
+    <div>NIK 2025 : Rp ${formatRupiah(currentVariant.otr)}</div>
+    <div>NIK 2026 : Rp ${formatRupiah(currentVariant.otr2026)}</div>
+    `;
+
+  } else {
+
+    priceEl.textContent = "Rp " + formatRupiah(currentVariant.otr || 0);
+
+  }
+
+}
 
   const briefList = qs("modal-brief-specs") || qs("modal-specs-quick-list");
   if (briefList) {
