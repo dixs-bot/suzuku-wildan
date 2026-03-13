@@ -744,10 +744,21 @@ priceEl.textContent = "Rp " + formatRupiah(currentVariant.price.nik2025);
 
   renderColorButtons(currentVariant);
 
-  const priceInput = qs("modal-price-input");
-  if (priceInput) priceInput.value = formatRupiah(currentVariant.otr || 0);
+const priceInput = qs("modal-price-input");
+
+if(priceInput){
+
+let price = 0;
+
+if(currentVariant.price?.nik2026){
+price = currentVariant.price.nik2026;
+}else{
+price = currentVariant.price?.nik2025 || 0;
 }
 
+priceInput.value = formatRupiah(price);
+
+}
 /* ================================================================
    9. TAB MODAL
 ================================================================ */
@@ -785,7 +796,7 @@ function calculateInstallment(price, dp, tenor, interestRateYearly) {
     };
   }
 
-  const monthlyInterestRate = (interestRateYearly / 100) / 24; // NOTE: kept original monthly calc? using /12 earlier. Use /12.
+  const monthlyInterestRate = (interestRateYearly / 100) / 12; // NOTE: kept original monthly calc? using /12 earlier. Use /12.
   // revert to /12 to be correct monthly:
   const monthlyInterest = (interestRateYearly / 100) / 12;
   const interestPerMonth = principal * monthlyInterest;
