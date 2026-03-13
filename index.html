@@ -548,18 +548,24 @@ loading="lazy">
 </div>
 
 </section>
-  <h3>Lokasi Dealer Suzuki NJS Cimahi Bandung</h3>
+<div class="card" style="margin-top:16px">
 
-<button onclick="detectLocation()" class="btn btn-primary">
-🧭 Navigasi ke Dealer
+<h3>Jarak Anda ke Dealer Suzuki NJS Cimahi</h3>
+
+<p id="distance-result">
+Klik tombol di bawah untuk mengetahui jarak Anda ke dealer kami.
+</p>
+
+<button onclick="checkDistance()" class="btn btn-primary">
+📍 Cek Jarak ke Dealer
 </button>
 
-<a href="https://maps.google.com/?q=Suzuki+Cimahi+Nusantara+Jaya+Sentosa"
+<a id="nav-button"
+href="#"
 target="_blank"
-class="btn btn-outline">
-
-🗺️ Buka di Google Maps
-
+class="btn btn-outline"
+style="margin-top:8px;display:none;">
+🧭 Navigasi ke Dealer
 </a>
 
 </div>
