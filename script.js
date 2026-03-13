@@ -1153,3 +1153,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+function detectLocation(){
+
+if(!navigator.geolocation){
+alert("Browser tidak mendukung GPS");
+return;
+}
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+const lat = position.coords.latitude;
+const lng = position.coords.longitude;
+
+/* koordinat dealer Suzuki NJS Cimahi */
+const dealerLat = -6.8685517;
+const dealerLng = 107.5307985;
+
+const mapsUrl =
+`https://www.google.com/maps/dir/${lat},${lng}/${dealerLat},${dealerLng}`;
+
+window.open(mapsUrl, "_blank");
+
+},
+function(){
+alert("Tidak bisa mendeteksi lokasi Anda");
+});
+
+}
