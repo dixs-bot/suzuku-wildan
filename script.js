@@ -293,7 +293,118 @@ price:{nik2025:184400000,nik2026:186800000}
 
 ]
 
+},
+  {
+id:"jimny-3door",
+name:"Jimny 3 Door",
+category:"passenger",
+image:"SUZUKI_BANDUNG_white-JIMNY_3-DOORS.png",
+
+variants:[
+
+{
+id:"3door-mt",
+name:"3 Door MT",
+price:{nik2025:511550000}
+},
+
+{
+id:"3door-at",
+name:"3 Door AT",
+price:{nik2025:524000000}
+},
+
+{
+id:"3door-mt-2tone",
+name:"3 Door MT 2 Tone",
+price:{nik2025:514850000}
+},
+
+{
+id:"3door-at-2tone",
+name:"3 Door AT 2 Tone",
+price:{nik2025:527300000}
 }
+
+]
+
+},
+  {
+id:"jimny-5door",
+name:"Jimny 5 Door",
+category:"passenger",
+image:"COLORIZE_JUNGLE_GREEN_FIXED_LAYERS-JIMNY_5-DOORS.png",
+
+variants:[
+
+{
+id:"5door-mt",
+name:"5 Door MT",
+price:{nik2025:496100000}
+},
+
+{
+id:"5door-at",
+name:"5 Door AT",
+price:{nik2025:508700000}
+},
+
+{
+id:"5door-mt-2tone",
+name:"5 Door MT 2 Tone",
+price:{nik2025:499350000}
+},
+
+{
+id:"5door-at-2tone",
+name:"5 Door AT 2 Tone",
+price:{nik2025:511900000}
+},
+
+{
+id:"5door-at-white-rhino",
+name:"5 Door AT White Rhino",
+price:{nik2025:522300000}
+}
+
+]
+
+},
+  {
+id:"apv",
+name:"APV",
+category:"passenger",
+image:"RED APV_ARENA.png",
+
+variants:[
+
+{
+id:"ge-ps-mt-ab",
+name:"APV GE PS MT AB",
+price:{nik2025:228200000,nik2026:229000000}
+},
+
+{
+id:"gl-mt-ab",
+name:"APV GL MT AB",
+price:{nik2025:236400000,nik2026:237500000}
+},
+
+{
+id:"gx-mt-ab",
+name:"APV GX MT AB",
+price:{nik2025:250500000,nik2026:251500000}
+},
+
+{
+id:"sgx-mt-ab",
+name:"APV SGX MT AB",
+price:{nik2025:253900000,nik2026:255000000}
+}
+
+]
+
+},
 
 ];
 
