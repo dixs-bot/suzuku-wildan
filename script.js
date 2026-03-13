@@ -281,7 +281,23 @@ function updateProductModalView() {
   }
 
   const priceEl = qs("modal-price") || qs("modal-product-price") || qs("modal-price-display");
-  if (priceEl) priceEl.textContent = "Rp " + formatRupiah(currentVariant.otr || 0);
+
+if (priceEl) {
+
+  if (currentVariant.price) {
+
+    priceEl.innerHTML = `
+    <div>NIK 2025 : Rp ${formatRupiah(currentVariant.price.nik2025)}</div>
+    <div>NIK 2026 : Rp ${formatRupiah(currentVariant.price.nik2026)}</div>
+    `;
+
+  } else {
+
+    priceEl.textContent = "Rp " + formatRupiah(currentVariant.otr || 0);
+
+  }
+
+}
 
   const briefList = qs("modal-brief-specs") || qs("modal-specs-quick-list");
   if (briefList) {
