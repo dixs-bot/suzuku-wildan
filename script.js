@@ -293,8 +293,13 @@ if (priceEl) {
 
   } else {
 
-    priceEl.textContent = "Rp " + formatRupiah(currentVariant.otr || 0);
+   let price = currentVariant.otr;
 
+if(currentVariant.otr2026){
+ price = currentVariant.otr2026;
+}
+
+priceEl.textContent = "Rp " + formatRupiah(price || 0);
   }
 
 }
