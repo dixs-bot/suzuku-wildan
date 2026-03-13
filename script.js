@@ -828,7 +828,9 @@ function initModalSimulationForm() {
         <p><strong>Total DP:</strong> Rp ${formatRupiah(Math.round(totalDP))}</p>
         <p><strong>Cicilan per bulan:</strong> Rp ${formatRupiah(Math.round(monthlyInstallment))}</p>
         <p><strong>Total pembayaran (termasuk DP):</strong> Rp ${formatRupiah(Math.round(totalPayment))}</p>
-        <p style="margin-top:8px;font-size:.8rem;color:#6b7280;">*Simulasi ini hanya ilustrasi. Paket resmi dan perhitungan aktual akan disesuaikan dengan SOP perusahaan dan leasing.</p>
+        <p style="margin-top:8px;font-size:.8rem;color:#6b7280;">
+        *Simulasi ini hanya ilustrasi. Paket resmi akan disesuaikan dengan leasing.
+        </p>
       `;
     }
   });
@@ -838,6 +840,7 @@ function initModalSimulationForm() {
    12. SIMULASI GLOBAL
 ================================================================ */
 function initGlobalSimulation() {
+
   const productSelect = qs("global-product-select");
   const variantSelect = qs("global-variant-select");
   const priceInput = qs("global-price-input");
@@ -847,80 +850,111 @@ function initGlobalSimulation() {
   const form = qs("global-simulation-form");
   const resultEl = qs("global-simulation-result");
 
-  if (!productSelect || !variantSelect || !form) {
-    // not present on page - skip
-    return;
-  }
+  if (!productSelect || !variantSelect || !form) return;
 
   productSelect.innerHTML = "";
   variantSelect.innerHTML = "";
 
   products.forEach((p, index) => {
+
     const opt = document.createElement("option");
     opt.value = p.id;
-    opt.textContent = p.name || ("Produk " + (index+1));
+    opt.textContent = p.name;
+
     if (index === 0) opt.selected = true;
+
     productSelect.appendChild(opt);
+
   });
 
-  function updateVariants() {
+  function updateVariants(){
+
     const productId = productSelect.value;
-    const product = products.find((p) => p.id === productId);
+    const product = products.find(p => p.id === productId);
+
     variantSelect.innerHTML = "";
-    if (!product || !Array.isArray(product.variants)) {
+
+    if (!product || !product.variants) return;
+
+    product.variants.forEach((v,index)=>{
+
       const opt = document.createElement("option");
-      opt.value = "";
-      opt.textContent = "Tipe tidak tersedia";
-      variantSelect.appendChild(opt);
-      if (priceInput) priceInput.value = "";
-      return;
-    }
-    product.variants.forEach((v, idx) => {
-      const opt = document.createElement("option");
+
       opt.value = v.id;
-      opt.textContent = v.name || ("Tipe " + (idx+1));
-      if (idx === 0) opt.selected = true;
+      opt.textContent = v.name;
+
+      if(index===0) opt.selected=true;
+
       variantSelect.appendChild(opt);
+
     });
+
     updatePriceFromSelection();
+
   }
 
-  function updatePriceFromSelection() {
+  function updatePriceFromSelection(){
+
     const productId = productSelect.value;
     const variantId = variantSelect.value;
-    const product = products.find((p) => p.id === productId);
-    if (!product) { if (priceInput) priceInput.value = ""; return; }
-    const variant = product.variants.find((v) => v.id === variantId) || product.variants[0];
-    if (!variant) { if (priceInput) priceInput.value = ""; return; }
-    if (priceInput) priceInput.value = formatRupiah(variant.otr);
+
+    const product = products.find(p=>p.id===productId);
+
+    if(!product) return;
+
+    const variant = product.variants.find(v=>v.id===variantId) || product.variants[0];
+
+    if(!variant) return;
+
+    let price = 0;
+
+    if(variant.price){
+
+      price = variant.price.nik2025;
+
+    }else if(variant.otr){
+
+      price = variant.otr;
+
+    }
+
+    if(priceInput) priceInput.value = formatRupiah(price);
+
   }
 
-  productSelect.addEventListener("change", updateVariants);
-  variantSelect.addEventListener("change", updatePriceFromSelection);
+  productSelect.addEventListener("change",updateVariants);
+  variantSelect.addEventListener("change",updatePriceFromSelection);
 
-  if (productSelect.options.length) productSelect.selectedIndex = 0;
   updateVariants();
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit",(e)=>{
+
     e.preventDefault();
+
     const price = parseRupiah(priceInput ? priceInput.value : "0");
     const dp = parseRupiah(dpInput ? dpInput.value : "0");
     const tenor = Number(tenorInput ? tenorInput.value : 0);
     const interest = Number(interestInput ? interestInput.value : 0);
 
-    const { monthlyInstallment, totalPayment, totalDP } = calculateInstallment(price, dp, tenor, interest);
+    const {monthlyInstallment,totalPayment,totalDP} =
+      calculateInstallment(price,dp,tenor,interest);
 
-    if (resultEl) {
+    if(resultEl){
+
       resultEl.innerHTML = `
-        <p><strong>Total DP:</strong> Rp ${formatRupiah(Math.round(totalDP))}</p>
-        <p><strong>Cicilan per bulan:</strong> Rp ${formatRupiah(Math.round(monthlyInstallment))}</p>
-        <p><strong>Total pembayaran (termasuk DP):</strong> Rp ${formatRupiah(Math.round(totalPayment))}</p>
-        <p style="margin-top:8px;font-size:.8rem;color:#6b7280;">*Simulasi ini hanya ilustrasi. Paket resmi dan perhitungan aktual akan disesuaikan dengan SOP perusahaan dan leasing.</p>
+      <p><strong>Total DP:</strong> Rp ${formatRupiah(Math.round(totalDP))}</p>
+      <p><strong>Cicilan per bulan:</strong> Rp ${formatRupiah(Math.round(monthlyInstallment))}</p>
+      <p><strong>Total pembayaran:</strong> Rp ${formatRupiah(Math.round(totalPayment))}</p>
+      <p style="margin-top:8px;font-size:.8rem;color:#6b7280">
+      *Simulasi hanya ilustrasi.
+      </p>
       `;
-    }
-  });
-}
 
+    }
+
+  });
+
+}
 /* ================================================================
    13. CONTACT FORM (DUMMY)
 ================================================================ */
