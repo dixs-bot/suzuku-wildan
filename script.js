@@ -1180,3 +1180,63 @@ alert("Tidak bisa mendeteksi lokasi Anda");
 });
 
 }
+function checkDistance(){
+
+if(!navigator.geolocation){
+alert("Browser tidak mendukung GPS");
+return;
+}
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+const userLat = position.coords.latitude;
+const userLng = position.coords.longitude;
+
+/* koordinat dealer Suzuki NJS Cimahi */
+const dealerLat = -6.8685517;
+const dealerLng = 107.5307985;
+
+/* fungsi hitung jarak */
+function getDistance(lat1, lon1, lat2, lon2){
+
+const R = 6371;
+
+const dLat = (lat2-lat1) * Math.PI/180;
+const dLon = (lon2-lon1) * Math.PI/180;
+
+const a =
+Math.sin(dLat/2) * Math.sin(dLat/2) +
+Math.cos(lat1*Math.PI/180) *
+Math.cos(lat2*Math.PI/180) *
+Math.sin(dLon/2) *
+Math.sin(dLon/2);
+
+const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+return R * c;
+
+}
+
+const distance = getDistance(userLat,userLng,dealerLat,dealerLng);
+
+document.getElementById("distance-result").innerHTML =
+"Jarak Anda ke Dealer Suzuki NJS Cimahi sekitar <b>" +
+distance.toFixed(1) +
+" km</b>";
+
+/* tombol navigasi */
+
+const mapsUrl =
+`https://www.google.com/maps/dir/${userLat},${userLng}/${dealerLat},${dealerLng}`;
+
+const navBtn = document.getElementById("nav-button");
+
+navBtn.href = mapsUrl;
+navBtn.style.display = "inline-block";
+
+},
+function(){
+alert("Tidak bisa mendeteksi lokasi Anda");
+});
+
+}
