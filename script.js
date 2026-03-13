@@ -804,37 +804,57 @@ function calculateInstallment(price, dp, tenor, interestRateYearly) {
    11. FORM SIMULASI DI MODAL
 ================================================================ */
 function initModalSimulationForm() {
+
   const form = qs("modal-simulation-form");
   const resultEl = qs("modal-simulation-result");
+  const priceInput = qs("modal-price-input");
+
   if (!form) return;
 
+  // Auto isi harga dari variant saat modal dibuka
+  if (priceInput && window.currentVariant) {
+
+    let price = 0;
+
+    if (currentVariant.price) {
+      price = currentVariant.price.nik2025;
+    } else if (currentVariant.otr) {
+      price = currentVariant.otr;
+    }
+
+    priceInput.value = formatRupiah(price);
+
+  }
+
   form.addEventListener("submit", (e) => {
+
     e.preventDefault();
 
-    const price = parseRupiah(qs("modal-price-input") ? qs("modal-price-input").value : "0");
+    const price = parseRupiah(priceInput ? priceInput.value : "0");
     const dp = parseRupiah(qs("modal-dp-input") ? qs("modal-dp-input").value : "0");
     const tenor = Number(qs("modal-tenor-input") ? qs("modal-tenor-input").value : 0);
     const interest = Number(qs("modal-interest-input") ? qs("modal-interest-input").value : 0);
 
-    const { monthlyInstallment, totalPayment, totalDP } = calculateInstallment(
-      price,
-      dp,
-      tenor,
-      interest
-    );
+    const { monthlyInstallment, totalPayment, totalDP } =
+      calculateInstallment(price, dp, tenor, interest);
 
     if (resultEl) {
+
       resultEl.innerHTML = `
-        <p><strong>Total DP:</strong> Rp ${formatRupiah(Math.round(totalDP))}</p>
-        <p><strong>Cicilan per bulan:</strong> Rp ${formatRupiah(Math.round(monthlyInstallment))}</p>
-        <p><strong>Total pembayaran (termasuk DP):</strong> Rp ${formatRupiah(Math.round(totalPayment))}</p>
-        <p style="margin-top:8px;font-size:.8rem;color:#6b7280;">
-        *Simulasi ini hanya ilustrasi. Paket resmi akan disesuaikan dengan leasing.
-        </p>
+      <p><strong>Total DP:</strong> Rp ${formatRupiah(Math.round(totalDP))}</p>
+      <p><strong>Cicilan per bulan:</strong> Rp ${formatRupiah(Math.round(monthlyInstallment))}</p>
+      <p><strong>Total pembayaran (termasuk DP):</strong> Rp ${formatRupiah(Math.round(totalPayment))}</p>
+      <p style="margin-top:8px;font-size:.8rem;color:#6b7280;">
+      *Simulasi ini hanya ilustrasi. Paket resmi akan disesuaikan dengan leasing.
+      </p>
       `;
+
     }
+
   });
+
 }
+
 
 /* ================================================================
    12. SIMULASI GLOBAL
@@ -858,8 +878,9 @@ function initGlobalSimulation() {
   products.forEach((p, index) => {
 
     const opt = document.createElement("option");
+
     opt.value = p.id;
-    opt.textContent = p.name;
+    opt.textContent = p.name || ("Produk " + (index+1));
 
     if (index === 0) opt.selected = true;
 
@@ -876,14 +897,14 @@ function initGlobalSimulation() {
 
     if (!product || !product.variants) return;
 
-    product.variants.forEach((v,index)=>{
+    product.variants.forEach((v,idx)=>{
 
       const opt = document.createElement("option");
 
       opt.value = v.id;
       opt.textContent = v.name;
 
-      if(index===0) opt.selected=true;
+      if(idx===0) opt.selected=true;
 
       variantSelect.appendChild(opt);
 
@@ -898,27 +919,24 @@ function initGlobalSimulation() {
     const productId = productSelect.value;
     const variantId = variantSelect.value;
 
-    const product = products.find(p=>p.id===productId);
+    const product = products.find(p => p.id === productId);
 
-    if(!product) return;
+    if (!product) return;
 
-    const variant = product.variants.find(v=>v.id===variantId) || product.variants[0];
+    const variant =
+      product.variants.find(v => v.id === variantId) || product.variants[0];
 
-    if(!variant) return;
+    if (!variant) return;
 
     let price = 0;
 
-    if(variant.price){
-
+    if (variant.price) {
       price = variant.price.nik2025;
-
-    }else if(variant.otr){
-
+    } else if (variant.otr) {
       price = variant.otr;
-
     }
 
-    if(priceInput) priceInput.value = formatRupiah(price);
+    if (priceInput) priceInput.value = formatRupiah(price);
 
   }
 
@@ -936,7 +954,7 @@ function initGlobalSimulation() {
     const tenor = Number(tenorInput ? tenorInput.value : 0);
     const interest = Number(interestInput ? interestInput.value : 0);
 
-    const {monthlyInstallment,totalPayment,totalDP} =
+    const { monthlyInstallment,totalPayment,totalDP } =
       calculateInstallment(price,dp,tenor,interest);
 
     if(resultEl){
@@ -944,9 +962,9 @@ function initGlobalSimulation() {
       resultEl.innerHTML = `
       <p><strong>Total DP:</strong> Rp ${formatRupiah(Math.round(totalDP))}</p>
       <p><strong>Cicilan per bulan:</strong> Rp ${formatRupiah(Math.round(monthlyInstallment))}</p>
-      <p><strong>Total pembayaran:</strong> Rp ${formatRupiah(Math.round(totalPayment))}</p>
-      <p style="margin-top:8px;font-size:.8rem;color:#6b7280">
-      *Simulasi hanya ilustrasi.
+      <p><strong>Total pembayaran (termasuk DP):</strong> Rp ${formatRupiah(Math.round(totalPayment))}</p>
+      <p style="margin-top:8px;font-size:.8rem;color:#6b7280;">
+      *Simulasi ini hanya ilustrasi.
       </p>
       `;
 
