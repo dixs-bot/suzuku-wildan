@@ -13,7 +13,7 @@ left:0;
 width:100%;
 height:100%;
 pointer-events:none;
-z-index:999;
+z-index:-1;
 overflow:hidden;
 }
 
@@ -84,14 +84,13 @@ position:absolute;
 top:40px;
 left:50%;
 transform:translateX(-50%);
-font-size:46px;
+font-size:28px;
 font-weight:bold;
 color:#facc15;
 text-shadow:0 0 20px gold;
 font-family:serif;
 animation:textGlow 3s infinite alternate;
 }
-
 @keyframes textGlow{
 0%{text-shadow:0 0 15px gold}
 100%{text-shadow:0 0 50px gold}
