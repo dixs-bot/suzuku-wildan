@@ -10,7 +10,7 @@ style.innerHTML=`
 
 .cs-icon{
 position:fixed;
-bottom:180px;
+bottom:160px;
 right:20px;
 width:55px;
 border-radius:50%;
