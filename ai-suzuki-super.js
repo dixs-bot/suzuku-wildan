@@ -8,180 +8,119 @@ const style=document.createElement("style")
 
 style.innerHTML=`
 
-/* ICON AI */
-
 .cs-icon{
-
 position:fixed;
-
 bottom:110px;
 right:20px;
-
 width:55px;
-
 border-radius:50%;
-
 box-shadow:0 6px 20px rgba(0,0,0,0.35);
-
 cursor:pointer;
-
-z-index:9999999;
-
-animation:floatCS 3s infinite ease-in-out;
-
+z-index:99999999;
+animation:csFloat 3s infinite ease-in-out;
 }
 
-
-/* FLOAT ANIMATION */
-
-@keyframes floatCS{
-
+@keyframes csFloat{
 0%{transform:translateY(0)}
 50%{transform:translateY(-8px)}
 100%{transform:translateY(0)}
-
 }
-
-
-/* CHAT BOX */
 
 .cs-chat{
-
 position:fixed;
-
 bottom:170px;
 right:20px;
-
 width:340px;
-height:440px;
-
+height:460px;
 background:white;
-
 border-radius:14px;
-
 box-shadow:0 15px 45px rgba(0,0,0,0.35);
-
 display:none;
-
 flex-direction:column;
-
 font-family:Arial;
-
-z-index:9999999;
-
+z-index:99999999;
 }
-
-
-/* HEADER */
 
 .cs-header{
-
 background:#0f172a;
-
 color:white;
-
 padding:12px;
-
 border-radius:14px 14px 0 0;
-
 font-weight:bold;
-
 }
-
-
-/* MESSAGE AREA */
 
 .cs-messages{
-
 flex:1;
-
 overflow:auto;
-
 padding:10px;
-
 font-size:13px;
-
 }
 
-
-/* INPUT AREA */
-
 .cs-input{
-
 display:flex;
-
 border-top:1px solid #eee;
-
 }
 
 .cs-input input{
-
 flex:1;
-
 border:none;
-
 padding:10px;
-
 outline:none;
-
 }
 
 .cs-input button{
-
 background:#16a34a;
-
 color:white;
-
 border:none;
-
 padding:10px 14px;
-
 cursor:pointer;
-
 }
-
-
-/* WHATSAPP BUTTON */
 
 .cs-wa{
-
 background:#25D366;
-
 color:white;
-
 text-align:center;
-
 padding:8px;
-
 font-size:12px;
-
 cursor:pointer;
-
 }
 
+/* QUICK QUESTION */
+
+.cs-quick{
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+margin-bottom:10px;
+}
+
+.cs-quick button{
+background:#f1f5f9;
+border:none;
+border-radius:20px;
+padding:6px 10px;
+font-size:12px;
+cursor:pointer;
+}
+
+.cs-quick button:hover{
+background:#16a34a;
+color:white;
+}
 
 /* MOBILE */
 
 @media (max-width:768px){
 
 .cs-icon{
-
 width:50px;
-bottom:110px;
 right:15px;
-
 }
 
 .cs-chat{
-
 width:92%;
-
 right:4%;
-
-bottom:170px;
-
 height:65vh;
-
 }
 
 }
@@ -218,7 +157,23 @@ chat.innerHTML=`
 
 <div class="cs-header">Suzuki AI Assistant</div>
 
-<div class="cs-messages" id="csMessages"></div>
+<div class="cs-messages" id="csMessages">
+
+<div class="cs-quick">
+
+<button onclick="askAI('Harga XL7')">Harga XL7</button>
+
+<button onclick="askAI('Spesifikasi Ertiga')">Spesifikasi Ertiga</button>
+
+<button onclick="askAI('Simulasi kredit')">Simulasi kredit</button>
+
+<button onclick="askAI('Budget 300 juta mobil apa')">Budget 300 juta</button>
+
+<button onclick="askAI('Promo Suzuki Bandung')">Promo Suzuki</button>
+
+</div>
+
+</div>
 
 <div class="cs-wa" onclick="window.open('https://wa.me/6281234567890')">
 Chat Sales WhatsApp
@@ -249,111 +204,37 @@ chat.style.display==="flex"?"none":"flex"
 
 
 /* ===============================
-CARI PRODUK
-=============================== */
-
-function findProduct(text){
-
-text=text.toLowerCase()
-
-return products.find(p =>
-text.includes(p.id.toLowerCase()) ||
-text.includes(p.name.toLowerCase())
-)
-
-}
-
-
-
-/* ===============================
-REKOMENDASI BUDGET
-=============================== */
-
-function recommendByBudget(budget){
-
-let result=[]
-
-products.forEach(p=>{
-
-p.variants.forEach(v=>{
-
-if(v.otr<=budget){
-
-result.push({
-name:p.name,
-variant:v.name,
-price:v.otr
-})
-
-}
-
-})
-
-})
-
-return result
-
-}
-
-
-
-/* ===============================
-AI RESPONSE
+AI FUNCTION
 =============================== */
 
 function suzukiAI(text){
 
 text=text.toLowerCase()
 
+if(typeof products==="undefined"){
 
-
-/* CEK BUDGET */
-
-const budgetMatch=text.match(/\d+/)
-
-if(text.includes("budget") && budgetMatch){
-
-let budget=parseInt(budgetMatch[0])*1000000
-
-const list=recommendByBudget(budget)
-
-if(list.length===0){
-
-return "Budget tersebut belum tersedia mobil Suzuki."
+return "Data mobil belum dimuat."
 
 }
-
-let reply=`Mobil Suzuki dengan budget sekitar Rp${budget.toLocaleString()}<br><br>`
-
-list.slice(0,5).forEach(c=>{
-
-reply+=`🚗 ${c.name} ${c.variant}<br>Rp ${c.price.toLocaleString()}<br><br>`
-
-})
-
-return reply
-
-}
-
-
 
 /* CARI MOBIL */
 
-const product=findProduct(text)
+let product=products.find(p=>
+text.includes(p.id.toLowerCase()) ||
+text.includes(p.name.toLowerCase())
+)
 
 if(product){
 
 let reply=`<b>${product.name}</b><br><br>`
 
-reply+=`Varian tersedia:<br>`
+reply+="Varian tersedia:<br>"
 
 product.variants.forEach(v=>{
-
 reply+=`• ${v.name} - Rp ${v.otr.toLocaleString()}<br>`
-
 })
 
-const s=product.variants[0].specs
+let s=product.variants[0].specs
 
 reply+=`
 
@@ -369,27 +250,49 @@ return reply
 
 }
 
-
-
 /* SIMULASI KREDIT */
 
 if(text.includes("kredit")){
 
 return`
-
 Simulasi kredit contoh:
 
-Harga mobil : Rp280.000.000  
-DP 20% : Rp56.000.000  
-Tenor : 5 tahun  
+Harga mobil : Rp280.000.000
+DP 20% : Rp56.000.000
+Tenor : 5 tahun
 
 Cicilan sekitar Rp5 juta / bulan
-
 `
 
 }
 
+/* BUDGET */
 
+if(text.includes("budget")){
+
+let num=text.match(/\d+/)
+
+if(num){
+
+let budget=parseInt(num[0])*1000000
+
+let list=[]
+
+products.forEach(p=>{
+p.variants.forEach(v=>{
+if(v.otr<=budget){
+list.push(p.name+" "+v.name+" - Rp "+v.otr.toLocaleString())
+}
+})
+})
+
+if(list.length){
+return "Mobil Suzuki sesuai budget:<br><br>"+list.slice(0,5).join("<br>")
+}
+
+}
+
+}
 
 /* DEFAULT */
 
@@ -403,12 +306,6 @@ Saya bisa membantu:
 🚗 Spesifikasi mobil  
 🚗 Simulasi kredit  
 🚗 Rekomendasi mobil sesuai budget  
-
-Contoh pertanyaan:
-
-Harga XL7  
-Spesifikasi Ertiga  
-Budget 300 juta mobil apa  
 
 `
 
@@ -424,11 +321,7 @@ const input=document.getElementById("csInput")
 const send=document.getElementById("csSend")
 const messages=document.getElementById("csMessages")
 
-send.onclick=()=>{
-
-const text=input.value
-
-if(!text) return
+function askAI(text){
 
 messages.innerHTML+=`<div><b>Anda:</b> ${text}</div>`
 
@@ -436,9 +329,19 @@ const reply=suzukiAI(text)
 
 messages.innerHTML+=`<div><b>Suzuki:</b> ${reply}</div>`
 
-input.value=""
-
 messages.scrollTop=messages.scrollHeight
+
+}
+
+send.onclick=()=>{
+
+const text=input.value
+
+if(!text) return
+
+askAI(text)
+
+input.value=""
 
 }
 
