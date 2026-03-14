@@ -1,8 +1,10 @@
 (function(){
 
-/* ===============================
-STYLE
-=============================== */
+if(typeof products === "undefined"){
+console.warn("Products belum dimuat")
+}
+
+/* ================= STYLE ================= */
 
 const style=document.createElement("style")
 
@@ -10,7 +12,7 @@ style.innerHTML=`
 
 .cs-icon{
 position:fixed;
-bottom:160px;
+bottom:170px;
 right:20px;
 width:55px;
 border-radius:50%;
@@ -28,7 +30,7 @@ animation:csFloat 3s infinite ease-in-out;
 
 .cs-chat{
 position:fixed;
-bottom:170px;
+bottom:230px;
 right:20px;
 width:340px;
 height:460px;
@@ -47,6 +49,14 @@ color:white;
 padding:12px;
 border-radius:14px 14px 0 0;
 font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.cs-close{
+cursor:pointer;
+font-size:18px;
 }
 
 .cs-messages{
@@ -76,17 +86,6 @@ padding:10px 14px;
 cursor:pointer;
 }
 
-.cs-wa{
-background:#25D366;
-color:white;
-text-align:center;
-padding:8px;
-font-size:12px;
-cursor:pointer;
-}
-
-/* QUICK QUESTION */
-
 .cs-quick{
 display:flex;
 flex-wrap:wrap;
@@ -108,47 +107,20 @@ background:#16a34a;
 color:white;
 }
 
-/* MOBILE */
-
-@media (max-width:768px){
-
-.cs-icon{
-bottom:180px;
-width:50px;
-right:15px;
-}
-
-.cs-chat{
-width:92%;
-right:4%;
-height:65vh;
-}
-
-}
-
 `
 
 document.head.appendChild(style)
 
-
-
-/* ===============================
-ICON
-=============================== */
+/* ================= ICON ================= */
 
 const icon=document.createElement("img")
 
 icon.src="cs-suzuki.png"
-
 icon.className="cs-icon"
 
 document.body.appendChild(icon)
 
-
-
-/* ===============================
-CHAT BOX
-=============================== */
+/* ================= CHAT ================= */
 
 const chat=document.createElement("div")
 
@@ -156,7 +128,13 @@ chat.className="cs-chat"
 
 chat.innerHTML=`
 
-<div class="cs-header">Suzuki AI Assistant</div>
+<div class="cs-header">
+
+Suzuki AI Assistant
+
+<span class="cs-close" onclick="closeAI()">✕</span>
+
+</div>
 
 <div class="cs-messages" id="csMessages">
 
@@ -164,20 +142,16 @@ chat.innerHTML=`
 
 <button onclick="askAI('Harga XL7')">Harga XL7</button>
 
+<button onclick="askAI('Harga Fronx')">Harga Fronx</button>
+
 <button onclick="askAI('Spesifikasi Ertiga')">Spesifikasi Ertiga</button>
 
-<button onclick="askAI('Simulasi kredit')">Simulasi kredit</button>
+<button onclick="askAI('Simulasi kredit XL7')">Simulasi kredit</button>
 
 <button onclick="askAI('Budget 300 juta mobil apa')">Budget 300 juta</button>
 
-<button onclick="askAI('Promo Suzuki Bandung')">Promo Suzuki</button>
-
 </div>
 
-</div>
-
-<div class="cs-wa" onclick="window.open('https://wa.me/6281234567890')">
-Chat Sales WhatsApp
 </div>
 
 <div class="cs-input">
@@ -189,40 +163,41 @@ Chat Sales WhatsApp
 
 document.body.appendChild(chat)
 
-
-
-/* ===============================
-OPEN CHAT
-=============================== */
+/* ================= OPEN CHAT ================= */
 
 icon.onclick=()=>{
 
-chat.style.display=
-chat.style.display==="flex"?"none":"flex"
+chat.style.display="flex"
 
 }
 
+/* ================= CLOSE CHAT ================= */
 
+window.closeAI=function(){
 
-/* ===============================
-AI FUNCTION
-=============================== */
+chat.style.display="none"
+
+}
+
+/* ================= AI ================= */
 
 function suzukiAI(text){
 
 text=text.toLowerCase()
 
-if(typeof products==="undefined"){
+if(typeof products === "undefined"){
 
-return "Data mobil belum dimuat."
+return "Data mobil belum tersedia."
 
 }
 
 /* CARI MOBIL */
 
 let product=products.find(p=>
+
 text.includes(p.id.toLowerCase()) ||
 text.includes(p.name.toLowerCase())
+
 )
 
 if(product){
@@ -232,14 +207,16 @@ let reply=`<b>${product.name}</b><br><br>`
 reply+="Varian tersedia:<br>"
 
 product.variants.forEach(v=>{
+
 reply+=`• ${v.name} - Rp ${v.otr.toLocaleString()}<br>`
+
 })
 
 let s=product.variants[0].specs
 
 reply+=`
 
-<br><b>Spesifikasi utama</b><br>
+<br><b>Spesifikasi</b><br>
 
 Mesin : ${s.engine}<br>
 Transmisi : ${s.transmission}<br>
@@ -251,18 +228,20 @@ return reply
 
 }
 
-/* SIMULASI KREDIT */
+/* SIMULASI */
 
 if(text.includes("kredit")){
 
 return`
-Simulasi kredit contoh:
 
-Harga mobil : Rp280.000.000
-DP 20% : Rp56.000.000
-Tenor : 5 tahun
+Contoh simulasi kredit:
+
+Harga mobil : Rp280.000.000  
+DP 20% : Rp56.000.000  
+Tenor : 5 tahun  
 
 Cicilan sekitar Rp5 juta / bulan
+
 `
 
 }
@@ -280,49 +259,36 @@ let budget=parseInt(num[0])*1000000
 let list=[]
 
 products.forEach(p=>{
+
 p.variants.forEach(v=>{
+
 if(v.otr<=budget){
+
 list.push(p.name+" "+v.name+" - Rp "+v.otr.toLocaleString())
+
 }
-})
+
 })
 
-if(list.length){
+})
+
 return "Mobil Suzuki sesuai budget:<br><br>"+list.slice(0,5).join("<br>")
-}
 
 }
 
 }
 
-/* DEFAULT */
-
-return`
-
-Halo 👋 saya AI Suzuki Assistant.
-
-Saya bisa membantu:
-
-🚗 Harga mobil Suzuki  
-🚗 Spesifikasi mobil  
-🚗 Simulasi kredit  
-🚗 Rekomendasi mobil sesuai budget  
-
-`
+return "Silakan tanya harga atau spesifikasi mobil Suzuki."
 
 }
 
-
-
-/* ===============================
-CHAT SYSTEM
-=============================== */
+/* ================= CHAT SYSTEM ================= */
 
 const input=document.getElementById("csInput")
 const send=document.getElementById("csSend")
 const messages=document.getElementById("csMessages")
 
-function askAI(text){
+window.askAI=function(text){
 
 messages.innerHTML+=`<div><b>Anda:</b> ${text}</div>`
 
