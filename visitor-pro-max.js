@@ -1,39 +1,26 @@
 (function(){
 
-/* ===============================
-VISITOR PRO MAX SYSTEM
-=============================== */
+/* ==============================
+STYLE VISITOR BOX
+============================== */
 
 const style=document.createElement("style")
 
 style.innerHTML=`
 
 .visitor-pro-box{
-
 position:fixed;
 bottom:20px;
 right:20px;
-
 background:linear-gradient(135deg,#020617,#0f172a);
-
 color:white;
-
 padding:14px 18px;
-
 border-radius:14px;
-
-box-shadow:0 10px 40px rgba(0,0,0,0.5);
-
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
 font-family:Arial;
-
 font-size:13px;
-
 z-index:9999;
-
-min-width:180px;
-
-animation:visitorFade 1s ease;
-
+min-width:210px;
 }
 
 .visitor-title{
@@ -45,69 +32,31 @@ color:#facc15;
 .visitor-row{
 display:flex;
 justify-content:space-between;
-margin:2px 0;
-}
-
-.visitor-online{
-color:#22c55e;
-font-weight:bold;
-}
-
-.visitor-total{
-color:#facc15;
-font-weight:bold;
+margin:3px 0;
 }
 
 .visitor-popup{
-
 position:fixed;
 left:20px;
 bottom:20px;
-
 background:white;
-
-color:#111;
-
 padding:10px 14px;
-
 border-radius:10px;
-
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
-
 font-size:13px;
-
-animation:popupShow .6s ease;
-
 z-index:9999;
-
+animation:popupFade .5s ease;
 }
 
-@keyframes popupShow{
-
+@keyframes popupFade{
 from{
 opacity:0;
 transform:translateY(20px);
 }
-
 to{
 opacity:1;
 transform:translateY(0);
 }
-
-}
-
-@keyframes visitorFade{
-
-from{
-opacity:0;
-transform:translateY(20px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
 }
 
 `
@@ -116,9 +65,9 @@ document.head.appendChild(style)
 
 
 
-/* ===============================
+/* ==============================
 CREATE VISITOR BOX
-=============================== */
+============================== */
 
 const box=document.createElement("div")
 
@@ -130,12 +79,17 @@ box.innerHTML=`
 
 <div class="visitor-row">
 <span>👥 Total Visitor</span>
-<span class="visitor-total" id="visitor-total">0</span>
+<span id="visitor-total">10.927</span>
 </div>
 
 <div class="visitor-row">
 <span>🟢 Online Now</span>
-<span class="visitor-online" id="visitor-online">1</span>
+<span id="visitor-online">8</span>
+</div>
+
+<div class="visitor-row">
+<span>👀 Visitors Now</span>
+<span id="visitor-now">8</span>
 </div>
 
 `
@@ -144,97 +98,114 @@ document.body.appendChild(box)
 
 
 
-/* ===============================
-LOAD TOTAL VISITOR
-=============================== */
+/* ==============================
+RANDOM VISITOR ONLINE
+============================== */
 
-async function loadVisitor(){
+function updateVisitors(){
 
-try{
+let randomVisitor=Math.floor(Math.random()*8)+3
 
-const res=await fetch("https://api.countapi.xyz/hit/suzuki-njs-cimahi/visits")
-
-const data=await res.json()
-
-document.getElementById("visitor-total").innerText=data.value
-
-}catch(e){
-
-console.log("Visitor error")
+document.getElementById("visitor-online").innerText=randomVisitor
+document.getElementById("visitor-now").innerText=randomVisitor
 
 }
 
-}
-
-loadVisitor()
+setInterval(updateVisitors,5000)
 
 
 
-/* ===============================
-SIMULATE ONLINE VISITOR
-=============================== */
+/* ==============================
+DATA KECAMATAN BANDUNG RAYA
+============================== */
 
-function simulateOnline(){
+const kecamatanBandung=[
 
-const online=Math.floor(Math.random()*8)+1
+"Cimahi",
+"Cimahi Utara",
+"Cimahi Selatan",
+"Cimahi Tengah",
 
-document.getElementById("visitor-online").innerText=online
+"Antapani",
+"Arcamanik",
+"Andir",
+"Astana Anyar",
+"Babakan Ciparay",
+"Bandung Kidul",
+"Bandung Kulon",
+"Bandung Wetan",
+"Batununggal",
+"Bojongloa Kaler",
+"Bojongloa Kidul",
+"Buah Batu",
+"Cibeunying Kaler",
+"Cibeunying Kidul",
+"Cibiru",
+"Cicendo",
+"Cidadap",
+"Cinambo",
+"Coblong",
+"Gedebage",
+"Kiaracondong",
+"Lengkong",
+"Mandalajati",
+"Panyileukan",
+"Rancasari",
+"Regol",
+"Sukajadi",
+"Sukasari",
+"Sumur Bandung",
+"Ujung Berung"
 
-}
-
-setInterval(simulateOnline,5000)
+]
 
 
 
-/* ===============================
-POPUP ACTIVITY
-=============================== */
+/* ==============================
+DATA MOBIL SUZUKI
+============================== */
 
-const cars=[
+const mobilSuzuki=[
+
 "XL7 Hybrid",
 "Ertiga Hybrid",
 "Grand Vitara",
 "Jimny 5 Door",
+"Baleno",
 "S-Presso",
-"Carry Pickup",
-"Baleno"
+"Carry Pickup"
+
 ]
 
-const cities=[
-"Bandung",
-"Jakarta",
-"Cimahi",
-"Bekasi",
-"Depok",
-"Tangerang",
-"Bogor"
-]
 
-function showPopup(){
 
-const car=cars[Math.floor(Math.random()*cars.length)]
+/* ==============================
+POPUP ACTIVITY
+============================== */
 
-const city=cities[Math.floor(Math.random()*cities.length)]
+function showVisitorPopup(){
+
+const kecamatan=kecamatanBandung[Math.floor(Math.random()*kecamatanBandung.length)]
+
+const mobil=mobilSuzuki[Math.floor(Math.random()*mobilSuzuki.length)]
 
 const popup=document.createElement("div")
 
 popup.className="visitor-popup"
 
 popup.innerHTML=`
-🚗 Seseorang dari <b>${city}</b><br>
-sedang melihat <b>${car}</b>
+🚗 Seseorang dari <b>${kecamatan}</b><br>
+sedang melihat <b>${mobil}</b>
 `
 
 document.body.appendChild(popup)
 
 setTimeout(()=>{
 popup.remove()
-},5000)
+},6000)
 
 }
 
-setInterval(showPopup,12000)
-
-
+setInterval(showVisitorPopup,12000)
 
 })();
