@@ -1,34 +1,38 @@
 (function(){
 
-/* =========================
-STYLE RESPONSIVE
-========================= */
+/* ===============================
+STYLE
+=============================== */
 
 const style=document.createElement("style")
 
 style.innerHTML=`
 
-/* ICON */
+/* ICON AI */
 
 .cs-icon{
 
 position:fixed;
-bottom:20px;
+
+bottom:110px;
 right:20px;
 
 width:55px;
 
 border-radius:50%;
 
-box-shadow:0 6px 20px rgba(0,0,0,0.3);
+box-shadow:0 6px 20px rgba(0,0,0,0.35);
 
 cursor:pointer;
 
-z-index:9999;
+z-index:9999999;
 
 animation:floatCS 3s infinite ease-in-out;
 
 }
+
+
+/* FLOAT ANIMATION */
 
 @keyframes floatCS{
 
@@ -44,7 +48,8 @@ animation:floatCS 3s infinite ease-in-out;
 .cs-chat{
 
 position:fixed;
-bottom:90px;
+
+bottom:170px;
 right:20px;
 
 width:340px;
@@ -52,16 +57,17 @@ height:440px;
 
 background:white;
 
-border-radius:12px;
+border-radius:14px;
 
-box-shadow:0 10px 40px rgba(0,0,0,0.3);
+box-shadow:0 15px 45px rgba(0,0,0,0.35);
 
 display:none;
+
 flex-direction:column;
 
 font-family:Arial;
 
-z-index:9999;
+z-index:9999999;
 
 }
 
@@ -71,34 +77,39 @@ z-index:9999;
 .cs-header{
 
 background:#0f172a;
+
 color:white;
 
 padding:12px;
 
-border-radius:12px 12px 0 0;
+border-radius:14px 14px 0 0;
 
 font-weight:bold;
 
 }
 
 
-/* MESSAGE */
+/* MESSAGE AREA */
 
 .cs-messages{
 
 flex:1;
+
 overflow:auto;
+
 padding:10px;
+
 font-size:13px;
 
 }
 
 
-/* INPUT */
+/* INPUT AREA */
 
 .cs-input{
 
 display:flex;
+
 border-top:1px solid #eee;
 
 }
@@ -106,8 +117,11 @@ border-top:1px solid #eee;
 .cs-input input{
 
 flex:1;
+
 border:none;
+
 padding:10px;
+
 outline:none;
 
 }
@@ -115,19 +129,24 @@ outline:none;
 .cs-input button{
 
 background:#16a34a;
+
 color:white;
+
 border:none;
+
 padding:10px 14px;
+
 cursor:pointer;
 
 }
 
 
-/* WHATSAPP */
+/* WHATSAPP BUTTON */
 
 .cs-wa{
 
 background:#25D366;
+
 color:white;
 
 text-align:center;
@@ -141,24 +160,27 @@ cursor:pointer;
 }
 
 
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 
 @media (max-width:768px){
 
 .cs-icon{
 
 width:50px;
-bottom:15px;
+bottom:110px;
 right:15px;
 
 }
 
 .cs-chat{
 
-width:90%;
-right:5%;
-bottom:80px;
-height:70vh;
+width:92%;
+
+right:4%;
+
+bottom:170px;
+
+height:65vh;
 
 }
 
@@ -170,9 +192,9 @@ document.head.appendChild(style)
 
 
 
-/* =========================
+/* ===============================
 ICON
-========================= */
+=============================== */
 
 const icon=document.createElement("img")
 
@@ -184,9 +206,9 @@ document.body.appendChild(icon)
 
 
 
-/* =========================
+/* ===============================
 CHAT BOX
-========================= */
+=============================== */
 
 const chat=document.createElement("div")
 
@@ -213,9 +235,9 @@ document.body.appendChild(chat)
 
 
 
-/* =========================
+/* ===============================
 OPEN CHAT
-========================= */
+=============================== */
 
 icon.onclick=()=>{
 
@@ -226,9 +248,9 @@ chat.style.display==="flex"?"none":"flex"
 
 
 
-/* =========================
+/* ===============================
 CARI PRODUK
-========================= */
+=============================== */
 
 function findProduct(text){
 
@@ -243,9 +265,9 @@ text.includes(p.name.toLowerCase())
 
 
 
-/* =========================
+/* ===============================
 REKOMENDASI BUDGET
-========================= */
+=============================== */
 
 function recommendByBudget(budget){
 
@@ -258,11 +280,9 @@ p.variants.forEach(v=>{
 if(v.otr<=budget){
 
 result.push({
-
 name:p.name,
 variant:v.name,
 price:v.otr
-
 })
 
 }
@@ -277,9 +297,9 @@ return result
 
 
 
-/* =========================
-AI REPLY
-========================= */
+/* ===============================
+AI RESPONSE
+=============================== */
 
 function suzukiAI(text){
 
@@ -287,7 +307,7 @@ text=text.toLowerCase()
 
 
 
-/* BUDGET */
+/* CEK BUDGET */
 
 const budgetMatch=text.match(/\d+/)
 
@@ -317,7 +337,7 @@ return reply
 
 
 
-/* PRODUK */
+/* CARI MOBIL */
 
 const product=findProduct(text)
 
@@ -355,13 +375,13 @@ return reply
 
 if(text.includes("kredit")){
 
-return `
+return`
 
 Simulasi kredit contoh:
 
-Harga mobil : Rp280.000.000
-DP 20% : Rp56.000.000
-Tenor : 5 tahun
+Harga mobil : Rp280.000.000  
+DP 20% : Rp56.000.000  
+Tenor : 5 tahun  
 
 Cicilan sekitar Rp5 juta / bulan
 
@@ -373,7 +393,7 @@ Cicilan sekitar Rp5 juta / bulan
 
 /* DEFAULT */
 
-return `
+return`
 
 Halo 👋 saya AI Suzuki Assistant.
 
@@ -396,9 +416,9 @@ Budget 300 juta mobil apa
 
 
 
-/* =========================
+/* ===============================
 CHAT SYSTEM
-========================= */
+=============================== */
 
 const input=document.getElementById("csInput")
 const send=document.getElementById("csSend")
