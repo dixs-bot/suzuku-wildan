@@ -91,6 +91,7 @@ text-shadow:0 0 20px gold;
 font-family:serif;
 animation:textGlow 3s infinite alternate;
 }
+
 @keyframes textGlow{
 0%{text-shadow:0 0 15px gold}
 100%{text-shadow:0 0 50px gold}
