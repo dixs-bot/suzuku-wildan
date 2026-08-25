@@ -21,7 +21,7 @@ variants:[
 {
 id:"gl-mt",
 name:"GL MT",
-price:{nik2025:261800000,nik2026:266800000},
+price:{nik2025:261800000,nik2026:269250000},
 
 colors:[
 {name:"Pearl Arctic White",hex:"#f9fafb"},
@@ -42,7 +42,7 @@ features:["LED Headlamp","Touchscreen","Cruise Control"]
 {
 id:"gl-at",
 name:"GL AT",
-price:{nik2025:273800000,nik2026:278800000},
+price:{nik2025:273800000,nik2026:279850000},
 
 colors:[
 {name:"Pearl Arctic White",hex:"#f9fafb"},
@@ -63,7 +63,7 @@ features:["LED Headlamp","Touchscreen","Cruise Control"]
 {
 id:"gx-mt",
 name:"GX MT",
-price:{nik2025:278800000,nik2026:283800000},
+price:{nik2025:278800000,nik2026:291600000},
 
 colors:[
 {name:"Pearl Arctic White",hex:"#f9fafb"},
@@ -99,7 +99,7 @@ variants:[
 {
 id:"mc-gl-mt",
 name:"MC GL MT",
-price:{nik2025:265350000},
+price:{nik2025:265350000,nik2026:268900000},
 
 colors:[
 {name:"Pearl Snow White",hex:"#f3f4f6"},
@@ -120,7 +120,7 @@ features:["AC Double Blower","Head Unit","Power Steering"]
 {
 id:"mc-gl-at",
 name:"MC GL AT",
-price:{nik2025:276400000},
+price:{nik2025:276400000,nik2026:279600000},
 
 colors:[
 {name:"Pearl Snow White",hex:"#f3f4f6"},
@@ -156,31 +156,31 @@ variants:[
 {
 id:"zeta-mt",
 name:"Zeta MT",
-price:{nik2025:269900000,nik2026:271500000}
+price:{nik2025:269900000,nik2026:273350000}
 },
 
 {
 id:"zeta-at",
 name:"Zeta AT",
-price:{nik2025:281100000,nik2026:282500000}
+price:{nik2025:281100000,nik2026:284450000}
 },
 
 {
 id:"beta-mt-hybrid",
 name:"Beta MT Hybrid",
-price:{nik2025:292200000,nik2026:299000000}
+price:{nik2025:292200000,nik2026:301600000}
 },
 
 {
 id:"beta-at-hybrid",
 name:"Beta AT Hybrid",
-price:{nik2025:303100000,nik2026:310000000}
+price:{nik2025:303100000,nik2026:312600000}
 },
 
 {
 id:"alpha-at-hybrid",
 name:"Alpha AT Hybrid",
-price:{nik2025:313200000,nik2026:321500000}
+price:{nik2025:313200000,nik2026:323550000}
 }
 
 ]
@@ -244,13 +244,13 @@ variants:[
 {
 id:"mt",
 name:"S-Presso MT",
-price:{nik2025:176600000}
+price:{nik2025:176600000,nik2026:184650000}
 },
 
 {
 id:"at",
 name:"S-Presso AT",
-price:{nik2025:186600000}
+price:{nik2025:186600000,nik2026:196050000}
 }
 
 ]
@@ -270,25 +270,25 @@ variants:[
 {
 id:"fd",
 name:"Pick Up FD",
-price:{nik2025:175500000,nik2026:177900000}
+price:{nik2025:175500000,nik2026:179650000}
 },
 
 {
 id:"wd",
 name:"Pick Up WD",
-price:{nik2025:176600000,nik2026:179000000}
+price:{nik2025:176600000,nik2026:180650000}
 },
 
 {
 id:"fd-ac-ps",
 name:"Pick Up FD AC PS",
-price:{nik2025:183500000,nik2026:185900000}
+price:{nik2025:183500000,nik2026:187600000}
 },
 
 {
 id:"wd-ac-ps",
 name:"Pick Up WD AC PS",
-price:{nik2025:184400000,nik2026:186800000}
+price:{nik2025:184400000,nik2026:188500000}
 }
 
 ]
@@ -311,7 +311,7 @@ price:{nik2025:511550000}
 {
 id:"3door-at",
 name:"3 Door AT",
-price:{nik2025:524000000}
+price:{nik2025:524000000,nik2026:528200000}
 },
 
 {
@@ -323,7 +323,7 @@ price:{nik2025:514850000}
 {
 id:"3door-at-2tone",
 name:"3 Door AT 2 Tone",
-price:{nik2025:527300000}
+price:{nik2025:527300000,nik2026:531500000}
 }
 
 ]
@@ -346,7 +346,7 @@ price:{nik2025:496100000}
 {
 id:"5door-at",
 name:"5 Door AT",
-price:{nik2025:508700000}
+price:{nik2025:508700000,nik2026:503600000}
 },
 
 {
@@ -358,7 +358,7 @@ price:{nik2025:499350000}
 {
 id:"5door-at-2tone",
 name:"5 Door AT 2 Tone",
-price:{nik2025:511900000}
+price:{nik2025:511900000,nik2026:516800000}
 },
 
 {
@@ -381,25 +381,25 @@ variants:[
 {
 id:"ge-ps-mt-ab",
 name:"APV GE PS MT AB",
-price:{nik2025:228200000,nik2026:229000000}
+price:{nik2025:228200000,nik2026:231100000}
 },
 
 {
 id:"gl-mt-ab",
 name:"APV GL MT AB",
-price:{nik2025:236400000,nik2026:237500000}
+price:{nik2025:236400000,nik2026:239300000}
 },
 
 {
 id:"gx-mt-ab",
 name:"APV GX MT AB",
-price:{nik2025:250500000,nik2026:251500000}
+price:{nik2025:250500000,nik2026:253300000}
 },
 
 {
 id:"sgx-mt-ab",
 name:"APV SGX MT AB",
-price:{nik2025:253900000,nik2026:255000000}
+price:{nik2025:253900000,nik2026:257250000}
 }
 
 ]
