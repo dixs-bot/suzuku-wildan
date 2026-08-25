@@ -148,7 +148,7 @@ features:["Head Unit Touchscreen","AC Double Blower"]
 id:"xl7",
 name:"XL7 Hybrid",
 category:"passenger",
-image:"Suzuki_XL7_ALPHA_KURO_IVORY-KURO.png",
+image:"newxl7.png",
 badge:"kuro",
 
 variants:[
